@@ -1,0 +1,96 @@
+<div style="display: flex;">
+    <div style="width: 500px; border: 0px solid; margin: 0px 30px auto;">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div style="text-align: center; font-size: 30px; padding-top: 50px; font-weight: bold; color: red;">
+            <p>Create Your Account</p>
+        </div>
+        <div class="content">
+            <div class="row">
+                <mat-form-field appearance="outline">
+                    <mat-label>First Name</mat-label>
+                    <input matInput type="text" placeholder="Enter your name" formControlName="firstname">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput type="text" placeholder="Enter your lastname" formControlName="lastname">
+                </mat-form-field>
+            </div>
+        
+            <div class="row">
+            <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput type="email" placeholder="Enter your email" formControlName="email">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>DOB</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="dob">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>  
+            </div>
+        
+            <div class="row">
+                <mat-radio-group aria-label="Select an option" formControlName="gender">
+                    <mat-label><b>Gender</b></mat-label>
+                    <mat-radio-button value="Male">Male</mat-radio-button>
+                    <mat-radio-button value="Female">Female</mat-radio-button>
+                    <mat-radio-button value="Trans">Trans</mat-radio-button>
+                </mat-radio-group>
+            </div>
+            <div class="row">
+                <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input matInput type="password" placeholder="Enter your email" formControlName="password">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Re-Password</mat-label>
+                    <input matInput type="password" placeholder="Enter your email" formControlName="repassword">
+                </mat-form-field>
+            </div>
+            
+        </div>
+        <div class="actions">
+            <button mat-raised-button type="button" >Cancel</button> &nbsp;
+            <button mat-raised-button color="primary" type="submit">Submit</button>
+        </div>
+        
+    </form>
+    <div>
+        <h4>Already have an account? <a (click)="onLogin()">Log-in</a></h4>
+    </div>
+    </div>
+   <div>
+    <img src="../assets/images/signup.jpg" alt="Software Event Image" style="padding-top:10px;width: 100%; max-width: 800px; height: auto;">
+   </div>
+</div>
+
+<!-- Footer -->
+<footer style="background-color: #0a4275; text-align: center; color:white;" >
+    <!-- Grid container -->
+    <div style="height: 40px;">
+      <!-- Section: CTA -->
+      <section class="">
+        <p style="padding-top: 10px;">
+          <span class="me-3" style="color: white; padding-right: 10px;">Register for free</span>
+          <button mdbRipple type="button" class="btn btn-outline-light btn-rounded">
+            Sign up!
+          </button>
+        </p>
+      </section>
+      <!-- Section: CTA -->
+    </div>
+    <!-- Grid container -->
+  
+    <!-- Copyright -->
+    <div style="background-color: rgba(0, 0, 0, 0.2); height: 30px;">
+      © 2024 Copyright:
+      <a style="color:gray"><b>UTIN Solution's pvt.ltd.</b></a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+
+
+
+

@@ -1,0 +1,183 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "firstname": "Nikhil",
+      "lastname": "Bari",
+      "email": "nikbari09@gmail.com",
+      "dob": "08-11-2001",
+      "password": "nikbari09",
+      "repassword": "nikbari09",
+      "gender": "Male"
+    },
+    {
+      "id": "9af2",
+      "firstname": "Azim",
+      "lastname": "Patel",
+      "email": "azim@gmail.com",
+      "dob": "2024-01-31T18:30:00.000Z",
+      "password": "azim",
+      "repassword": "azim",
+      "gender": "Male"
+    },
+    {
+      "id": "6c49",
+      "firstname": "Kaushiki",
+      "lastname": " Kulkarni",
+      "email": "kaushikik@gmail.com",
+      "dob": "2024-02-15T18:30:00.000Z",
+      "password": "kaushiki",
+      "repassword": "kaushiki",
+      "gender": "Female"
+    },
+    {
+      "id": "cac8",
+      "firstname": "Kaushiki",
+      "lastname": " Kulkarni",
+      "email": "kaushikik@gmail.com",
+      "dob": "2024-02-15T18:30:00.000Z",
+      "password": "kaushiki",
+      "repassword": "kaushiki",
+      "gender": "Female"
+    },
+    {
+      "id": "1d4f",
+      "firstname": "Omkar ",
+      "lastname": "Chaudhari",
+      "email": "omi@gmail.com",
+      "dob": "2024-02-05T18:30:00.000Z",
+      "password": "omi",
+      "repassword": "omi",
+      "gender": "Male"
+    },
+    {
+      "id": "19f7",
+      "firstname": "nikhil",
+      "lastname": "bari",
+      "email": "nikbari@gmail.com",
+      "dob": "2024-02-01T18:30:00.000Z",
+      "password": "nik",
+      "repassword": "nik",
+      "gender": "Male"
+    },
+    {
+      "id": "8461",
+      "firstname": "moiz",
+      "lastname": "solgar",
+      "email": "moiz@gmail.com",
+      "dob": "2024-02-09T18:30:00.000Z",
+      "password": "moiz",
+      "repassword": "moiz",
+      "gender": "Male"
+    },
+    {
+      "id": "3ed3",
+      "firstname": "ajinkya",
+      "lastname": "sakharkar",
+      "email": "ajinkya@gmail.com",
+      "dob": "2024-02-11T18:30:00.000Z",
+      "password": "ajinkya",
+      "repassword": "ajinkya",
+      "gender": "Male"
+    },
+    {
+      "id": "ee7a",
+      "firstname": "kaushiki",
+      "lastname": "kulkarni",
+      "email": "kaushikik1@gmail.com",
+      "dob": "2024-02-07T18:30:00.000Z",
+      "password": "kaushiki",
+      "repassword": "kaushiki",
+      "gender": "Female"
+    },
+    {
+      "id": "632c",
+      "firstname": "tejas",
+      "lastname": "dange",
+      "email": "tejasdange@gmail.com",
+      "dob": "2024-02-01T18:30:00.000Z",
+      "password": "tejas",
+      "repassword": "tejas",
+      "gender": "Male"
+    },
+    {
+      "id": "70b5",
+      "firstname": "lalit",
+      "lastname": "borse",
+      "email": "lalitb@gmail.com",
+      "dob": "2024-02-06T18:30:00.000Z",
+      "password": "lalit",
+      "repassword": "lalit",
+      "gender": "Male"
+    },
+    {
+      "id": "2634",
+      "firstname": "shubham",
+      "lastname": "gite",
+      "email": "gite@gmail.com",
+      "dob": "2024-02-09T18:30:00.000Z",
+      "password": "gite",
+      "repassword": "gite",
+      "gender": "Male",
+      "role": "user"
+    }
+  ],
+  "user-login": [
+    {
+      "id": "1",
+      "email": "nikbari09@gmail.com",
+      "password": "nikbari@09",
+      "role": "admin"
+    },
+    {
+      "email": "nikbari09@gmail.com",
+      "password": "nikbari09",
+      "role": "user",
+      "id": "1"
+    },
+    {
+      "id": "b217",
+      "email": "moiz@gmail.com",
+      "password": "moiz",
+      "role": "user"
+    },
+    {
+      "id": "c78f",
+      "email": "ajinkya@gmail.com",
+      "password": "ajinkya",
+      "role": "user"
+    },
+    {
+      "id": "6cb0",
+      "email": "kaushikik1@gmail.com",
+      "password": "kaushiki",
+      "role": "user"
+    },
+    {
+      "id": "9b95",
+      "email": "tejasdange@gmail.com",
+      "password": "tejas",
+      "role": "user"
+    },
+    {
+      "id": "aab7",
+      "email": "lalitb@gmail.com",
+      "password": "lalit",
+      "role": "user"
+    },
+    {
+      "id": "452d",
+      "email": "gite@gmail.com",
+      "password": "gite",
+      "role": "user"
+    }
+  ],
+  "admin-login": [
+    {
+      "id": "1",
+      "email": "nikbari09@gmail.com",
+      "password": "nikbari@09",
+      "role": "admin"
+    }
+  ]
+}
