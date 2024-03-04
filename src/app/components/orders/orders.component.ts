@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
 import { OrdersService } from 'src/app/services/orders.service';
+import { UsersService } from 'src/app/services/users.service';
 
+// interface orderDATA{
+// data:any;
+// firstname:any;
+// lastname:any;
+// }
 @Component({
   selector: 'app-orders',
   templateUrl: './orders.component.html',
@@ -12,7 +18,9 @@ export class OrdersComponent {
   street!:any;
   role!:any;
   email!:any;
-  constructor(private _ordersService:OrdersService){}
+  userOrder:any[]=[];
+  constructor(private _ordersService:OrdersService,
+    private _usersService:UsersService){}
   ngOnInit(){
     const keys= Object.keys(localStorage);
     for(const key of keys)
@@ -31,10 +39,37 @@ export class OrdersComponent {
 
     this._ordersService.getOrder().subscribe({
       next:(res)=>{
-        console.log(res);
-        // console.log(this.orderData);
+        // console.log(res);
         res.reverse();
         this.orderData=res;
+        // for(let value of res)
+        // {
+        //   this._usersService.getUser().subscribe({
+        //     next:(res1)=>{
+        //       for(let resss of res1)
+        //       {
+        //         if(resss.email === value.details[0].email)
+        //         {
+        //           this.orderData=[{data:value,firstname:resss.firstname,lastname:resss.lastname}];
+        //         }
+        //       }
+        //       console.log(this.orderData);
+        //     },
+        //     error:(err1)=>{
+        //       console.log(err1);
+        //     }
+        //   })
+        // }
+        
+        for(let response of res)
+        {
+          if(response.details[0].email === this.email)
+          {
+            this.userOrder.push(response);
+          }
+        }
+        // console.log(this.userOrder);
+        
       },
       error:(err)=>{
 
@@ -108,7 +143,6 @@ export class OrdersComponent {
         })
       }
       }
-      // location.reload();
     }, 1 * 60 * 1000);
   }
 

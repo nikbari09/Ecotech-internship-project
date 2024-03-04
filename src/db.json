@@ -348,7 +348,27 @@
           "totalcost": 270,
           "count": 3,
           "item_name": "burger",
-          "status": "placed"
+          "status": "Confirm"
+        }
+      ]
+    },
+    {
+      "id": "8747",
+      "details": [
+        {
+          "address": [
+            {
+              "street": "pune",
+              "city": "pune",
+              "state": "mah",
+              "pinCode": "424204"
+            }
+          ],
+          "email": "gite@gmail.com",
+          "totalcost": 120,
+          "count": 4,
+          "item_name": "pani puri",
+          "status": "Food In Process"
         }
       ]
     }
