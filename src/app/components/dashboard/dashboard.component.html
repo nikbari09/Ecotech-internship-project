@@ -1,10 +1,16 @@
-<mat-toolbar color="primary">
+<mat-toolbar style="background-color:#5C3317; color:white;">
     <span>UTIN Solution's</span>
     <span class="toolbar-item-spacer"></span>
-    <button mat-button>Home</button>
-    <button mat-button>Offers</button>
-    <button mat-button>Orders</button>
-    <button mat-button>Contact us</button>
+    <button mat-button routerLink="/dashboard/home" routerLinkActive="active-link">Home</button>
+    <button mat-button routerLink="offers" *ngIf="role === 'admin' else OffersElse" routerLinkActive="active-link">Add Offers</button>
+    <ng-template #OffersElse>
+      <button mat-button routerLink="offers" routerLinkActive="active-link">Offers</button>
+    </ng-template>
+    <button mat-button routerLinkActive="active-link">Contact us</button>
+    <button mat-button routerLink="order" *ngIf="role === 'admin' else CartElse" routerLink="/dashboard/orders"routerLinkActive="active-link">Order</button>
+    <ng-template #CartElse>
+      <button mat-button routerLink="cart" routerLinkActive="active-link">Cart</button>
+    </ng-template>
     
     <span class="toolbar-item-spacer"></span>
     <button mat-icon-button matTooltip="Home" routerLink="/home">
@@ -16,15 +22,15 @@
     <button mat-icon-button matTooltip="Notifications">
         <mat-icon>notifications</mat-icon>
     </button>
-    <button mat-icon-button matTooltip="My Account" [matMenuTriggerFor]="userAccountMenu">
+    <button mat-icon-button matTooltip="My Account" [matMenuTriggerFor]="userAccountMenu" *ngIf="role === 'admin' else profileElse">
         <mat-icon>account_circle</mat-icon>
     </button>
     <mat-menu #userAccountMenu [overlapTrigger]="false" yPosition="below">
         <button mat-menu-item routerLink="#">
-            <mat-icon>person</mat-icon><span>My Account</span>
+            <mat-icon>person</mat-icon><span>{{firstname | uppercase}}</span>
         </button>
         <button mat-menu-item routerLink="#">
-            <mat-icon>settings</mat-icon><span>Settings</span>
+            <mat-icon>settings</mat-icon><span>Change Password</span>
         </button>
         <button mat-menu-item routerLink="#">
             <mat-icon>help</mat-icon><span>Help</span>
@@ -34,12 +40,37 @@
             <mat-icon>exit_to_app</mat-icon>Logout
         </button>
     </mat-menu>
+    <ng-template #profileElse>
+      <button mat-icon-button matTooltip="My Account" [matMenuTriggerFor]="userAccountMenu">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+      <mat-menu #userAccountMenu [overlapTrigger]="false" yPosition="below">
+        <button mat-menu-item routerLink="#">
+            <mat-icon>person</mat-icon><span>{{firstname | uppercase}}</span>
+        </button>
+        <button mat-menu-item routerLink="#">
+            <mat-icon>settings</mat-icon><span>Change Password</span>
+        </button>
+        <button mat-menu-item routerLink="/dashboard/orders">
+          <mat-icon>shopping_basket</mat-icon><span>Orders</span>
+        </button>
+        <button mat-menu-item routerLink="#">
+            <mat-icon>help</mat-icon><span>Help</span>
+        </button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item (click)="onLogout()">
+            <mat-icon>exit_to_app</mat-icon>Logout
+        </button>
+      </mat-menu>
+    </ng-template>
   </mat-toolbar>
-  <div>
-    <h1><b>Welcome {{firstname}} {{lastname}} .</b></h1>
+
+  <div style="background-color: #D2B48C;">
+    <!-- <app-home></app-home> -->
+    <router-outlet></router-outlet>
   </div>
   
-  <footer style="background-color: #f1f1f1; text-align: center; position: relative;">
+  <footer style="background-color: #C19A6B; text-align: center; position: relative;">
     <!-- Grid container -->
     <div style="height: 40px;">
       <!-- Section: Social media -->
@@ -52,10 +83,16 @@
         ></a>
   
         <!--call -->
-        <a
+        <a  style="padding-right: 20px;"
           href="#!"
           role="button"
         ><i class="material-icons">call</i>
+        </a>
+
+        <a
+          href="#!"
+          role="button"
+        ><i class="material-icons">place</i>
         </a>
       </section>
       <!-- Section: Social media -->
@@ -65,7 +102,7 @@
     <!-- Copyright -->
     <div style="background-color: rgba(0, 0, 0, 0.2); height: 30px;">
       © 2024 Copyright:
-      <a style="color:gray"><b>UTIN Solution's pvt.ltd.</b></a>
+      <a style="color:white"><b>UTIN Solution's pvt.ltd.</b></a>
     </div>
     <!-- Copyright -->
   </footer>

@@ -30,10 +30,14 @@
     padding: 10px;
     border: none;
     border-radius: 3px;
+    margin-left: 20px;
     cursor: pointer;
   }
   
   button:disabled {
     background-color: #bdc3c7;
     cursor: not-allowed;
+  }
+  a{
+    color: blue;
   }

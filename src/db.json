@@ -81,16 +81,6 @@
       "gender": "Male"
     },
     {
-      "id": "ee7a",
-      "firstname": "kaushiki",
-      "lastname": "kulkarni",
-      "email": "kaushikik1@gmail.com",
-      "dob": "2024-02-07T18:30:00.000Z",
-      "password": "kaushiki",
-      "repassword": "kaushiki",
-      "gender": "Female"
-    },
-    {
       "id": "632c",
       "firstname": "tejas",
       "lastname": "dange",
@@ -120,6 +110,50 @@
       "repassword": "gite",
       "gender": "Male",
       "role": "user"
+    },
+    {
+      "id": "5e74",
+      "firstname": "",
+      "lastname": "",
+      "email": "",
+      "dob": "",
+      "password": "",
+      "repassword": "",
+      "gender": "",
+      "role": "user"
+    },
+    {
+      "id": "b720",
+      "firstname": "kaushiki",
+      "lastname": "kulkarni",
+      "email": "kaushikik1@gmail.com",
+      "dob": "2024-02-02T18:30:00.000Z",
+      "password": "kk",
+      "repassword": "kk",
+      "gender": "Female",
+      "role": "user"
+    },
+    {
+      "id": "c5dd",
+      "firstname": "",
+      "lastname": "",
+      "email": "",
+      "dob": "",
+      "password": "",
+      "repassword": "",
+      "gender": "",
+      "role": "user"
+    },
+    {
+      "id": "c32d",
+      "firstname": "",
+      "lastname": "",
+      "email": "",
+      "dob": "",
+      "password": "",
+      "repassword": "",
+      "gender": "",
+      "role": "user"
     }
   ],
   "user-login": [
@@ -148,10 +182,11 @@
       "role": "user"
     },
     {
-      "id": "6cb0",
-      "email": "kaushikik1@gmail.com",
-      "password": "kaushiki",
-      "role": "user"
+      "street": "pune",
+      "city": "pune",
+      "state": "mah",
+      "zipCode": "424204",
+      "id": "6cb0"
     },
     {
       "id": "9b95",
@@ -170,6 +205,30 @@
       "email": "gite@gmail.com",
       "password": "gite",
       "role": "user"
+    },
+    {
+      "id": "45a0",
+      "email": "",
+      "password": "",
+      "role": "user"
+    },
+    {
+      "id": "61d9",
+      "email": "kaushikik1@gmail.com",
+      "password": "kk",
+      "role": "user"
+    },
+    {
+      "id": "1f3b",
+      "email": "",
+      "password": "",
+      "role": "user"
+    },
+    {
+      "id": "3c56",
+      "email": "",
+      "password": "",
+      "role": "user"
     }
   ],
   "admin-login": [
@@ -178,6 +237,120 @@
       "email": "nikbari09@gmail.com",
       "password": "nikbari@09",
       "role": "admin"
+    }
+  ],
+  "menu": [
+    {
+      "id": "1",
+      "title": "sandwich",
+      "price": "100",
+      "image": "https://theyummydelights.com/wp-content/uploads/2022/04/shredded-chicken-sandwich.jpg"
+    },
+    {
+      "id": "aabf",
+      "title": "burger",
+      "price": 90,
+      "image": "https://assets.epicurious.com/photos/5c745a108918ee7ab68daf79/1:1/w_1920,c_limit/Smashburger-recipe-120219.jpg"
+    },
+    {
+      "id": "6ded",
+      "title": "pizza",
+      "price": 200,
+      "image": "https://t3.ftcdn.net/jpg/05/60/70/82/360_F_560708240_pMZPOuSfvblWGRoaiZFLT4wiFTzQPwQe.jpg"
+    },
+    {
+      "id": "5",
+      "title": "crossoint",
+      "price": "150",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbQSuQ3ONq0jUpNfoXnBTj4_5SZDE0nL6g2w&usqp=CAU"
+    },
+    {
+      "id": "7",
+      "title": "pani puri",
+      "price": 30,
+      "image": "https://i.pinimg.com/736x/84/19/36/8419365e2a903618fe3db224428948bc.jpg"
+    }
+  ],
+  "orders": [
+    {
+      "id": "1c5a",
+      "details": [
+        {
+          "address": [
+            {
+              "street": "pune",
+              "city": "pune",
+              "state": "mah",
+              "pinCode": "424204"
+            }
+          ],
+          "email": "kaushikik1@gmail.com",
+          "totalcost": 200,
+          "count": 2,
+          "item_name": "sandwich",
+          "status": "Delivered"
+        }
+      ]
+    },
+    {
+      "id": "1d2f",
+      "details": [
+        {
+          "address": [
+            {
+              "street": "pune",
+              "city": "pune",
+              "state": "mah",
+              "pinCode": "424204"
+            }
+          ],
+          "email": "kaushikik1@gmail.com",
+          "totalcost": 90,
+          "count": 1,
+          "item_name": "burger",
+          "status": "Delivered"
+        }
+      ]
+    },
+    {
+      "id": "93c4",
+      "details": [
+        {
+          "address": [
+            {
+              "street": "pune",
+              "city": "pune",
+              "state": "mah",
+              "pinCode": "424204"
+            }
+          ],
+          "email": "kaushikik1@gmail.com",
+          "totalcost": 300,
+          "count": 2,
+          "item_name": "crossoint",
+          "status": "Delivered"
+        }
+      ]
+    },
+    {
+      "id": "f474",
+      "details": [
+        {
+          "address": [
+            {
+              "street": "pune",
+              "city": "pune",
+              "state": "mah",
+              "pinCode": "424204"
+            }
+          ],
+          "email": "kaushikik1@gmail.com",
+          "totalcost": 270,
+          "count": 3,
+          "item_name": "burger",
+          "status": "placed"
+        }
+      ]
     }
   ]
 }

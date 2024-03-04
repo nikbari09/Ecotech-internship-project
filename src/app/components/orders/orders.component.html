@@ -1,0 +1,43 @@
+  <div *ngIf="role === 'admin'">
+  <div *ngFor="let item of orderData" class="card-container">
+      <mat-card class="horizontal-card">
+        <mat-card-content>
+          <!-- <p>Email: {{item.address[0].email }}</p> -->
+          <p>Item Name: {{ item.details[0].item_name }}</p>
+          <p>Count: {{ item.details[0].count }}</p>
+          <p>Total Cost: {{item.details[0].totalcost}}</p>
+          <p>Status: {{ item.details[0].status }}</p>
+          <p>Address:</p>
+    
+          <!-- Address details -->
+          <ul>
+            <!-- <li *ngFor="let address of item.details"> -->
+              <p>Street: {{ item.details[0].address[0].street }}</p>
+              <p>City: {{ item.details[0].address[0].city }}</p>
+              <p>State: {{ item.details[0].address[0].state }}</p>
+              <p>Pin Code: {{ item.details[0].address[0].pinCode }}</p>
+            <!-- </li> -->
+          </ul>
+        </mat-card-content>
+        <div style="display: flex; gap:10px; margin-bottom: 10px; margin-left: 10px; margin-right: 10px;" *ngIf="item.details[0].status === 'placed'">
+            <button mat-button style="flex:1; width: 50%; background-color:#5C3317; color: white;" (click)="OnConfirm(item.id)">Confirm</button>
+            <button mat-button style="flex:1; width: 50%; background-color:#5C3317; color: white;">Cancel</button>
+        </div>
+          <div style="gap:10px; margin-bottom: 10px; text-align: end; margin-right: 10px;" *ngIf="item.details[0].status === 'Confirm'">
+              <button mat-button style="background-color:#5C3317; color: white;" (click)="OnProcess(item.id)">Food In Process</button>
+              <!-- <button mat-button style="flex:1; width: 50%; background-color:#5C3317; color: white;">Cancel</button> -->
+          </div>
+          <div style="gap:10px; margin-bottom: 10px; text-align: end; margin-right: 10px;" *ngIf="item.details[0].status === 'Food In Process'">
+              <button mat-button style="background-color:#5C3317; color: white;" (click)="OnDelivery(item.id)">Out For Delivery</button>
+              <!-- <button mat-button style="flex:1; width: 50%; background-color:#5C3317; color: white;">Cancel</button> -->
+          </div>
+          <div style="gap:10px; margin-bottom: 10px; text-align: end; margin-right: 10px;" *ngIf="item.details[0].status === 'Delivered'">
+              <button mat-button style="background-color:#5C3317; color: white;">Delivered</button>
+              <!-- <button mat-button style="flex:1; width: 50%; background-color:#5C3317; color: white;">Cancel</button> -->
+          </div>
+      </mat-card>
+  </div>
+</div>
+
+<div *ngIf="role === 'user'">
+</div>

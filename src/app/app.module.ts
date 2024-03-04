@@ -22,6 +22,13 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatListModule } from '@angular/material/list';
+import { HomeComponent } from './components/home/home.component';
+import { OffersComponent } from './components/offers/offers.component';
+import { CartComponent } from './components/cart/cart.component';
+import { AddMenuComponent } from './components/add-menu/add-menu.component';
+import { AddressComponent } from './components/address/address.component';
+import { OrdersComponent } from './components/orders/orders.component';
+// import { OrdersComponent } from './orders/orders.component';
 // import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 
 
@@ -33,6 +40,13 @@ import { MatListModule } from '@angular/material/list';
     ForgetPwdComponent,
     ChangePwdComponent,
     DashboardComponent,
+    HomeComponent,
+    OffersComponent,
+    CartComponent,
+    AddMenuComponent,
+    AddressComponent,
+    OrdersComponent,
+    // OrdersComponent,
     // AdminDashboardComponent
   ],
   imports: [

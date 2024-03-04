@@ -15,3 +15,17 @@
     align-items: center;
     justify-content: center;
 } 
+
+button:hover {
+    background-color: #804A00; /* Darker color on hover */
+}
+
+button{
+    margin-left: 5px;
+}
+
+/* routerLinkActive  */
+.active-link {
+    background-color: #804A00; /* Add your desired styling for active links */
+    color: white;
+  }

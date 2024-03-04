@@ -86,12 +86,12 @@ export class LoginComponent {
           //localStorage.setItem('user',JSON.stringify(userFound));
           if(userFound[0].role === 'user'){
             localStorage.setItem('user',JSON.stringify(userFound));
-            this.router.navigate(['/dashboard']);
+            this.router.navigate(['/dashboard/home']);
           }
           else if(userFound[0].role === 'admin')
           {
             localStorage.setItem('admin',JSON.stringify(userFound));
-            this.router.navigate(['/dashboard']);
+            this.router.navigate(['/dashboard/home']);
 
           }
           this._dialogref.close();

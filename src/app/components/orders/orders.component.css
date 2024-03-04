@@ -1,0 +1,16 @@
+.card-container {
+    display: flex;
+    flex-direction: row;
+    gap: 16px; 
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /* Adjust the gap based on your design */
+  }
+  
+  .horizontal-card {
+    width: 300px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px; /* Adjust the width based on your design */
+  }
+  

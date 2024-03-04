@@ -5,12 +5,25 @@ import { SignupComponent } from './components/signup/sign-up/signup.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 // import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { loginAuthGuard } from './guards/login-auth.guard';
+import { HomeComponent } from './components/home/home.component';
+import { OffersComponent } from './components/offers/offers.component';
+import { CartComponent } from './components/cart/cart.component';
+import { AddMenuComponent } from './components/add-menu/add-menu.component';
+import { OrdersComponent } from './components/orders/orders.component';
 
 const routes: Routes = [
   {path:'login', component:LoginComponent},
   {path:'', component:SignupComponent},
-  {path:'dashboard', component:DashboardComponent, canActivate:[loginAuthGuard]},
-  // {path:'admin-dashboard',component:AdminDashboardComponent}
+  {path:'dashboard', component:DashboardComponent, canActivate:[loginAuthGuard],
+  children:[
+    {path:'home', component:HomeComponent},
+    {path:'offers', component:OffersComponent},
+    {path:'cart',component:CartComponent},
+    {path:'orders', component:OrdersComponent}
+    
+  ]},
+  {path:'add-menu', component:AddMenuComponent}
+  // {path:'admin-dashboard',component:AdminDashboardComponent},
 ];
 
 @NgModule({

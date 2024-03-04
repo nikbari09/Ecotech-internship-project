@@ -1,0 +1,110 @@
+.card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    /* margin-top: 10px; */
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+.card-header {
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    border-radius: 8px 8px 0 0;
+}
+
+.card-title {
+    margin-bottom: 0;
+}
+
+.card-subtitle {
+    color: #6c757d;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.media {
+    margin: 15px;
+}
+
+.media img {
+    border-radius: 50%;
+    max-width: 100%;
+    height: auto;
+}
+img{
+    border-radius: 10px;
+    height: 250px;
+    margin: 10px 10px 10px 10px;
+}
+
+.media-body {
+    flex: 1;
+    margin-left: 15px;
+}
+
+.media-body p {
+    margin-bottom: 15px;
+}
+
+.media-body a {
+    color: #D2B48C;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.media-body a:hover {
+    text-decoration: underline;
+}
+.quantity-controls{
+    margin-left: 20px; 
+    
+    align-items: flex-end;
+    button{
+        background-color: #D2B48C;
+    }
+    text-align: end;
+}
+
+
+/* place order */
+
+.place-order-container {
+    text-align: end;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-right: 40px;
+    background-color: #D2B48C;
+    font-size: 16px;
+    padding-bottom: 10px;
+}
+
+.place-order-button {
+    background-color: #5C3317; /* Flipkart's primary color */
+    color: #fff; /* White text on the button */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.place-order-button:hover {
+    background-color: #804A00; /* Darker color on hover */
+}
+
+/* Address */
+.address-container {
+    text-align: end;
+    /* margin-top: 10px; */
+    margin-bottom: 10px;
+    margin-right: 40px;
+    background-color: #D2B48C;
+    font-size: 16px;
+    padding-top:10px;
+}
