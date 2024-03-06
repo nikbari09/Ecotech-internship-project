@@ -348,7 +348,7 @@
           "totalcost": 270,
           "count": 3,
           "item_name": "burger",
-          "status": "Confirm"
+          "status": "Delivered"
         }
       ]
     },
@@ -368,9 +368,67 @@
           "totalcost": 120,
           "count": 4,
           "item_name": "pani puri",
-          "status": "Food In Process"
+          "status": "Delivered"
         }
       ]
+    },
+    {
+      "id": "8e99",
+      "details": [
+        {
+          "address": [
+            {
+              "street": " Flat No.501, Vrindavan Society, near bopdev ghat",
+              "city": "pune",
+              "state": "Maharashtra",
+              "pinCode": "411043"
+            }
+          ],
+          "email": "kaushikik1@gmail.com",
+          "totalcost": 2000,
+          "count": 10,
+          "item_name": "pizza",
+          "status": "placed"
+        }
+      ]
+    },
+    {
+      "id": "af32",
+      "details": [
+        {
+          "address": [
+            {
+              "street": " Flat No.501, Vrindavan Society, near bopdev ghat",
+              "city": "pune",
+              "state": "Maharashtra",
+              "pinCode": "411043"
+            }
+          ],
+          "email": "kaushikik1@gmail.com",
+          "totalcost": 200,
+          "count": 1,
+          "item_name": "Burger + fries",
+          "status": "placed"
+        }
+      ]
+    }
+  ],
+  "offers": [
+    {
+      "id": "2",
+      "title": "Combo Offer",
+      "item1": "Sandwich",
+      "item2": "Pizza",
+      "actual_price": "450",
+      "discounted_price": "299"
+    },
+    {
+      "id": "1",
+      "title": "Combo Offer",
+      "item1": "Burger",
+      "item2": "fries",
+      "actual_price": "300",
+      "discounted_price": "200"
     }
   ]
 }

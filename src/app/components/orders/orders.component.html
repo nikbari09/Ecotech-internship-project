@@ -2,6 +2,7 @@
   <div *ngFor="let item of orderData" class="card-container">
       <mat-card class="horizontal-card">
         <mat-card-content>
+          <p style="text-align: end;"><b>Time: Order placed time</b></p>
           <p><b>Item Name: </b>{{ item.details[0].item_name | titlecase}} &nbsp;&nbsp;
           <b>Count: </b>{{ item.details[0].count }}</p>
           <p><b>Total Cost: </b>{{item.details[0].totalcost | currency:'INR'}}&nbsp;&nbsp;

@@ -28,8 +28,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { AddMenuComponent } from './components/add-menu/add-menu.component';
 import { AddressComponent } from './components/address/address.component';
 import { OrdersComponent } from './components/orders/orders.component';
-// import { OrdersComponent } from './orders/orders.component';
-// import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
+
 
 
 
@@ -46,8 +45,6 @@ import { OrdersComponent } from './components/orders/orders.component';
     AddMenuComponent,
     AddressComponent,
     OrdersComponent,
-    // OrdersComponent,
-    // AdminDashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -67,8 +64,6 @@ import { OrdersComponent } from './components/orders/orders.component';
     MatExpansionModule,
     MatTooltipModule,
     MatListModule
-
-
   ],
   providers: [],
   bootstrap: [AppComponent]

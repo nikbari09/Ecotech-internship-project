@@ -8,22 +8,22 @@
             <div class="row">
                 <mat-form-field appearance="outline">
                     <mat-label>First Name</mat-label>
-                    <input matInput type="text" placeholder="Enter your name" formControlName="firstname">
+                    <input matInput type="text" placeholder="Enter your name" formControlName="firstname" required>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                     <mat-label>Last Name</mat-label>
-                    <input matInput type="text" placeholder="Enter your lastname" formControlName="lastname">
+                    <input matInput type="text" placeholder="Enter your lastname" formControlName="lastname" required>
                 </mat-form-field>
             </div>
         
             <div class="row">
             <mat-form-field appearance="outline">
                     <mat-label>Email</mat-label>
-                    <input matInput type="email" placeholder="Enter your email" formControlName="email">
+                    <input matInput type="email" placeholder="Enter your email" formControlName="email" required>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                     <mat-label>DOB</mat-label>
-                    <input matInput [matDatepicker]="picker" formControlName="dob">
+                    <input matInput [matDatepicker]="picker" formControlName="dob" required>
                     <mat-hint>MM/DD/YYYY</mat-hint>
                     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
@@ -41,11 +41,11 @@
             <div class="row">
                 <mat-form-field appearance="outline">
                     <mat-label>Password</mat-label>
-                    <input matInput type="password" placeholder="Enter your email" formControlName="password">
+                    <input matInput type="password" placeholder="Enter your email" formControlName="password" required>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                     <mat-label>Re-Password</mat-label>
-                    <input matInput type="password" placeholder="Enter your email" formControlName="repassword">
+                    <input matInput type="password" placeholder="Enter your email" formControlName="repassword" required>
                 </mat-form-field>
             </div>
             
