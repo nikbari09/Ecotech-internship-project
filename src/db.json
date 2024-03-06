@@ -132,39 +132,6 @@
       "repassword": "kk",
       "gender": "Female",
       "role": "user"
-    },
-    {
-      "id": "c5dd",
-      "firstname": "",
-      "lastname": "",
-      "email": "",
-      "dob": "",
-      "password": "",
-      "repassword": "",
-      "gender": "",
-      "role": "user"
-    },
-    {
-      "id": "c32d",
-      "firstname": "",
-      "lastname": "",
-      "email": "",
-      "dob": "",
-      "password": "",
-      "repassword": "",
-      "gender": "",
-      "role": "user"
-    },
-    {
-      "id": "df57",
-      "firstname": "",
-      "lastname": "",
-      "email": "",
-      "dob": "",
-      "password": "",
-      "repassword": "",
-      "gender": "",
-      "role": "user"
     }
   ],
   "user-login": [
@@ -246,6 +213,18 @@
       "email": "",
       "password": "",
       "role": "user"
+    },
+    {
+      "id": "c1b6",
+      "email": "",
+      "password": "",
+      "role": "user"
+    },
+    {
+      "id": "f96d",
+      "email": "",
+      "password": "",
+      "role": "user"
     }
   ],
   "admin-login": [
@@ -260,7 +239,7 @@
     {
       "id": "1",
       "title": "sandwich",
-      "price": "100",
+      "price": 110,
       "image": "https://theyummydelights.com/wp-content/uploads/2022/04/shredded-chicken-sandwich.jpg"
     },
     {
@@ -425,7 +404,7 @@
           "totalcost": 200,
           "count": 1,
           "item_name": "Burger + fries",
-          "status": "placed"
+          "status": "Delivered"
         }
       ]
     }
