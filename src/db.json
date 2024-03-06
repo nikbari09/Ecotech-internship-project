@@ -154,6 +154,17 @@
       "repassword": "",
       "gender": "",
       "role": "user"
+    },
+    {
+      "id": "df57",
+      "firstname": "",
+      "lastname": "",
+      "email": "",
+      "dob": "",
+      "password": "",
+      "repassword": "",
+      "gender": "",
+      "role": "user"
     }
   ],
   "user-login": [
@@ -226,6 +237,12 @@
     },
     {
       "id": "3c56",
+      "email": "",
+      "password": "",
+      "role": "user"
+    },
+    {
+      "id": "cb9b",
       "email": "",
       "password": "",
       "role": "user"

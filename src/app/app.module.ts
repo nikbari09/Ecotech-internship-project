@@ -28,6 +28,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { AddMenuComponent } from './components/add-menu/add-menu.component';
 import { AddressComponent } from './components/address/address.component';
 import { OrdersComponent } from './components/orders/orders.component';
+import { AddOfferComponent } from './components/add-offer/add-offer.component';
 
 
 
@@ -45,6 +46,7 @@ import { OrdersComponent } from './components/orders/orders.component';
     AddMenuComponent,
     AddressComponent,
     OrdersComponent,
+    AddOfferComponent,
   ],
   imports: [
     BrowserModule,

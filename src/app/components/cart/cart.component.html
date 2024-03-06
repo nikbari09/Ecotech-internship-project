@@ -2,7 +2,7 @@
     <b>Address: {{street}} ,{{city}} ,{{state}} ,{{pin}}</b>&nbsp;
     <button class="place-order-button" (click)="addAddress()">{{isaddress?'Change':'Add'}}</button>
 </div>
-<div style="font-size: 30px; font-weight: bold; text-align: center; margin-top: 20px;">
+<div style="font-size: 30px; font-weight: bold; text-align: center; margin-top: 20px; padding-bottom: 10px;">
     Cart
 </div>
 <div style="width: 50%; margin-top: 20px;" class="card" *ngIf="items">
@@ -29,7 +29,12 @@
     </div>
 </div>
 
-<div class="place-order-container">
+<div class="place-order-container" *ngIf="items else placeElse">
     <b>Total Price: {{totalcost | currency:'INR'}}</b>&nbsp;
     <button class="place-order-button" (click)="placeOrder()">Place Order</button>
 </div>
+<ng-template #placeElse>
+    <div style="text-align: center;">
+        <b>Cart is empty.</b>
+    </div>
+</ng-template>
