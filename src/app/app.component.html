@@ -1,2 +1,7 @@
 <!-- <app-signup></app-signup> -->
-<router-outlet></router-outlet>
+<ngx-ui-loader loaderId="deliveryBoyLoader" [hasProgressBar]="showProgressBar" logoUrl="../assets/gif/red_scooty.gif" 
+[logoSize]="LOGOSIZE" [fgsSize]="TextSize" [gap]="Gap" text="Please wait..."> 
+</ngx-ui-loader>
+<div ngxUiLoaderBlurred [blur]="1">
+    <router-outlet></router-outlet>
+</div>

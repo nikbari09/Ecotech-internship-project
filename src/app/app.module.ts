@@ -29,8 +29,13 @@ import { AddMenuComponent } from './components/add-menu/add-menu.component';
 import { AddressComponent } from './components/address/address.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { AddOfferComponent } from './components/add-offer/add-offer.component';
-
-
+import { ProfileComponent } from './components/profile/profile.component';
+import { MatFormField, MatFormFieldModule, MatLabel } from '@angular/material/form-field';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatInputModule } from '@angular/material/input';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
+import { DeliveryBoyLoaderComponent } from './components/delivery-boy-loader/delivery-boy-loader.component';
 
 
 @NgModule({
@@ -47,6 +52,9 @@ import { AddOfferComponent } from './components/add-offer/add-offer.component';
     AddressComponent,
     OrdersComponent,
     AddOfferComponent,
+    ProfileComponent,
+    DeliveryBoyLoaderComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -65,7 +73,17 @@ import { AddOfferComponent } from './components/add-offer/add-offer.component';
     MatSidenavModule,
     MatExpansionModule,
     MatTooltipModule,
-    MatListModule
+    MatListModule,
+    MatFormFieldModule,
+    MatSnackBarModule,
+    MatInputModule,
+    MatProgressSpinnerModule,
+    NgxUiLoaderModule,
+    NgxUiLoaderHttpModule.forRoot({
+      showForeground:true,
+      loaderId: 'deliveryBoyLoader',
+      
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

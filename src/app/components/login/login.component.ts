@@ -12,7 +12,6 @@ import { UserLoginService } from 'src/app/services/user-login.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  
   constructor(private _userloginService:UserLoginService,
     private router:Router,
     private _dialogref:MatDialogRef<LoginComponent>){}
@@ -29,7 +28,6 @@ export class LoginComponent {
   }
 
   login(): void {
-
     this._userloginService.getUserLogin().subscribe({
       next:(res)=>{
         const userFound = res.filter( (val:any) => val.email === this.loginForm.value.email && val.password === this.loginForm.value.password)

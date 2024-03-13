@@ -2,10 +2,13 @@
   <div *ngFor="let item of orderData" class="card-container">
       <mat-card class="horizontal-card">
         <mat-card-content>
-          <p style="text-align: end;"><b>Time: Order placed time</b></p>
+          <p style="text-align: end;"><b>Date: {{item.date | date}}</b>&nbsp;
+          <b>Order time: {{item.details[0].time}}</b>&nbsp;
+          <b *ngIf="item.details[0].status === 'Delivered'">Delivered time: {{item.time}}</b></p>
+          <p><b>Order by: </b>{{item.details[0].firstname | titlecase}} {{item.details[0].lastname | titlecase}}</p>
           <p><b>Item Name: </b>{{ item.details[0].item_name | titlecase}} &nbsp;&nbsp;
           <b>Count: </b>{{ item.details[0].count }}</p>
-          <p><b>Total Cost: </b>{{item.details[0].totalcost | currency:'INR'}}&nbsp;&nbsp;
+          <p><b>Total Cost: </b>{{item.details[0].total_cost | currency:'INR'}}&nbsp;&nbsp;
           <b>Status: </b>{{ item.details[0].status | titlecase }}</p>
           <p><b>Address:</b>
               {{ item.details[0].address[0].street }},
@@ -21,6 +24,7 @@
               <button mat-button style="background-color:#5C3317; color: white;" (click)="OnProcess(item.id)">Food In Process</button>
           </div>
           <div style="gap:10px; margin-bottom: 10px; text-align: end; margin-right: 10px;" *ngIf="item.details[0].status === 'Food In Process'">
+              <button mat-button style="background-color:#5C3317; color: white;" >Print Bill</button>&nbsp;
               <button mat-button style="background-color:#5C3317; color: white;" (click)="OnDelivery(item.id)">Out For Delivery</button>
           </div>
           <div style="gap:10px; margin-bottom: 10px; text-align: end; margin-right: 10px;" *ngIf="item.details[0].status === 'Delivered'">
@@ -36,7 +40,10 @@
       <mat-card-content>
         <p><b>Item Name: </b>{{ item.details[0].item_name | titlecase}}&nbsp;
         <b>Count: </b>{{ item.details[0].count }}</p>
-        <p><b>Total Cost: </b>{{item.details[0].totalcost |currency:'INR'}}</p>
+        <p><b>Total Cost: </b>{{item.details[0].total_cost |currency:'INR'}}</p>
+        <p><b>Date: {{item.date | date}}</b>&nbsp;
+        <b>Order time:  {{item.details[0].time}}</b> &nbsp;
+        <b *ngIf="item.details[0].status === 'Delivered'">Delivered time:  {{item.time}}</b></p>
       </mat-card-content>
       <div style="text-align: end; gap:10px; margin-bottom: 10px; margin-left: 10px; margin-right: 10px;">
           <b>Status: </b><button mat-button style="flex:1; background-color:#5C3317; color: white;">{{ item.details[0].status }}</button>

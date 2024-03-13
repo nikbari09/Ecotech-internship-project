@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'UTIN';
+  blur:number=15;
+  Gap:number=-20;
+  showProgressBar: boolean = false;
+  LOGOSIZE:number=180;
+  TextSize:number=0;
 }

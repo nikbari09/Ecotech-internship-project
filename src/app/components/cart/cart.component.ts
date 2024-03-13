@@ -5,6 +5,8 @@ import { AddressComponent } from '../address/address.component';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { OrdersService } from 'src/app/services/orders.service';
 import { FormControl, FormGroup } from '@angular/forms';
+import { TimeService } from 'src/app/services/time.service';
+import { UsersService } from 'src/app/services/users.service';
 
 export interface add {
   street: string;
@@ -16,10 +18,13 @@ export interface add {
 export interface isplaceorder{
   address:add[];
   email:any;
-  totalcost:any;
+  firstname:any;
+  lastname:any;
+  total_cost:any;
   count:any;
   item_name:any;
   status:any;
+  time:any;
 }
 
 @Component({
@@ -30,8 +35,13 @@ export interface isplaceorder{
 export class CartComponent {
   constructor(private router:Router,
   private _dialog:MatDialog,
-  private _orderService:OrdersService){}
+  private _orderService:OrdersService,
+  private _timeService:TimeService,
+  private _userService:UsersService){}
+  
   inputnumber = 1;
+  firstname!:any;
+  lastname!:any;
   email!:string;
   title!:string;
   price!:number;
@@ -45,6 +55,7 @@ export class CartComponent {
   isaddress:any;
   placeorder:isplaceorder[]=[];
   orderForm:FormGroup = new FormGroup({});
+  currentTime:any;
   
   
   ngOnInit(){
@@ -92,8 +103,27 @@ export class CartComponent {
         }
       }
     }
+    // total cost of order
     this.totalcost=this.inputnumber*this.price;
+    //getting user firstname and lastname
+    this._userService.getUser().subscribe({
+      next:(res)=>{
+        for(let value of res)
+        {
+          if(this.email === value.email)
+          {
+            this.firstname=value.firstname;
+            this.lastname=value.lastname;
+          }
+        }
+      },
+      error:(err)=>{
+        console.log(err);
+        
+      }
+    })
   }
+
   plus()
   {
    this.inputnumber = this.inputnumber+1;
@@ -116,7 +146,8 @@ export class CartComponent {
   }
 
   placeOrder(){
-    this.placeorder=[{address:[{street:this.street,city:this.city,state:this.state,pinCode:this.pin}],email:this.email,totalcost:this.totalcost,count:this.inputnumber,item_name:this.title,status:'placed'}];
+    this.currentTime=this._timeService.getTime();
+    this.placeorder=[{address:[{street:this.street,city:this.city,state:this.state,pinCode:this.pin}],email:this.email,total_cost:this.totalcost,count:this.inputnumber,item_name:this.title,status:'placed',time:this.currentTime,firstname:this.firstname,lastname:this.lastname}];
     // this.placeorder=this.isaddress+this.totalcost;
     this.orderForm.value.details=this.placeorder;
     console.log(this.placeorder);

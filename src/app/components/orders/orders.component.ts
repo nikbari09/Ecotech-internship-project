@@ -1,12 +1,9 @@
 import { Component } from '@angular/core';
 import { OrdersService } from 'src/app/services/orders.service';
+import { TimeService } from 'src/app/services/time.service';
 import { UsersService } from 'src/app/services/users.service';
 
-// interface orderDATA{
-// data:any;
-// firstname:any;
-// lastname:any;
-// }
+
 @Component({
   selector: 'app-orders',
   templateUrl: './orders.component.html',
@@ -19,8 +16,11 @@ export class OrdersComponent {
   role!:any;
   email!:any;
   userOrder:any[]=[];
+  currentTime:any;
+
   constructor(private _ordersService:OrdersService,
-    private _usersService:UsersService){}
+    private _usersService:UsersService,
+    private _timeService:TimeService){}
   ngOnInit(){
     const keys= Object.keys(localStorage);
     for(const key of keys)
@@ -36,31 +36,11 @@ export class OrdersComponent {
       }
     }
 
-
     this._ordersService.getOrder().subscribe({
       next:(res)=>{
         // console.log(res);
         res.reverse();
         this.orderData=res;
-        // for(let value of res)
-        // {
-        //   this._usersService.getUser().subscribe({
-        //     next:(res1)=>{
-        //       for(let resss of res1)
-        //       {
-        //         if(resss.email === value.details[0].email)
-        //         {
-        //           this.orderData=[{data:value,firstname:resss.firstname,lastname:resss.lastname}];
-        //         }
-        //       }
-        //       console.log(this.orderData);
-        //     },
-        //     error:(err1)=>{
-        //       console.log(err1);
-        //     }
-        //   })
-        // }
-        
         for(let response of res)
         {
           if(response.details[0].email === this.email)
@@ -69,10 +49,10 @@ export class OrdersComponent {
           }
         }
         // console.log(this.userOrder);
-        
       },
       error:(err)=>{
-
+        console.log(err);
+        
       }
     })
   }
@@ -83,6 +63,7 @@ export class OrdersComponent {
       if(id === data.id)
       {
         data.details[0].status='Confirm';
+        // data.time=this._timeService.getTime();
         this._ordersService.updateStatus(id,data).subscribe({
           next:(res)=>{
             console.log(res);
@@ -94,16 +75,6 @@ export class OrdersComponent {
         })
       }
     }
-    // this._ordersService.updateStatus(id,this.orderData.value).subscribe({
-    //   next:(res)=>{
-    //     console.log(res);
-    //     // window.location.reload();
-    //   },
-    //   error:(err)=>{
-    //     console.log(err);
-    //   }
-    // })
-
   }
 
   OnProcess(id:any){
@@ -112,6 +83,7 @@ export class OrdersComponent {
       if(id === data.id)
       {
         data.details[0].status='Food In Process';
+        // data.time=this._timeService.getTime();
         this._ordersService.updateStatus(id,data).subscribe({
           next:(res)=>{
             console.log(res);
@@ -126,12 +98,34 @@ export class OrdersComponent {
   }
 
   OnDelivery(id:any){
+    // first we change the status to out for delivery and after that by using set timer we are changing status to delivered
+    for(let data of this.orderData)
+      {
+      if(id === data.id)
+      {
+        data.details[0].status='Out for Delivery';
+        // data.time=this._timeService.getTime();
+        this._ordersService.updateStatus(id,data).subscribe({
+          next:(res)=>{
+            console.log(res);
+            // window.location.reload();
+          },
+          error:(err)=>{
+            console.log(err);
+          }
+        })
+      }
+      }
+    // below code for timer from out for delivery to delivered.
     setTimeout(() => {
       for(let data of this.orderData)
       {
       if(id === data.id)
       {
         data.details[0].status='Delivered';
+        data.time=this._timeService.getTime();
+        console.log('inside settimeout');
+        
         this._ordersService.updateStatus(id,data).subscribe({
           next:(res)=>{
             console.log(res);
@@ -145,5 +139,4 @@ export class OrdersComponent {
       }
     }, 1 * 60 * 1000);
   }
-
 }

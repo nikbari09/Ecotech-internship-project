@@ -10,18 +10,18 @@ export class MenuService {
   constructor(private _http:HttpClient) { }
 
   getMenu():Observable<any>{
-    return this._http.get('http://localhost:3000/menu');
+    return this._http.get('https://localhost:7122/api/Menu/getmenu');
   }
 
   deleteMenu(id:any):Observable<any>{
-    return this._http.delete(`http://localhost:3000/menu/${id}`);
+    return this._http.delete(`https://localhost:7122/api/Menu/deletebyid/${id}`);
   }
 
   addMenu(data:any):Observable<any>{
-    return this._http.post('http://localhost:3000/menu',data);
+    return this._http.post('https://localhost:7122/api/Menu/addmenu',data);
   }
   
   updateMenu(id:any,data:any):Observable<any>{
-    return this._http.put(`http://localhost:3000/menu/${id}`,data);
+    return this._http.put(`https://localhost:7122/api/Menu/updateMenu/${id}`,data);
   }
 }

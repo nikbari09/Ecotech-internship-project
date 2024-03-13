@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { OfferService } from 'src/app/services/offer.service';
+import { AddOfferComponent } from '../add-offer/add-offer.component';
 
 interface getdata{
 title:any;
@@ -16,7 +18,8 @@ export class OffersComponent {
   role!:any;
   email!:any;
   constructor(private _offerService:OfferService,
-    private _router:Router){}
+    private _router:Router,
+    private _dialog:MatDialog){}
   offers!:any;
   ngOnInit(){
     const keys= Object.keys(localStorage);
@@ -56,6 +59,10 @@ export class OffersComponent {
     this._router.navigate(['/dashboard/cart']);  
   }
 
+  OnEdit(data:any){
+    this._dialog.open(AddOfferComponent,{data});
+  }
+
   OnDelete(id:any){
     this._offerService.deleteOffer(id).subscribe({
       next:(res)=>{
@@ -66,6 +73,10 @@ export class OffersComponent {
         
       }
     })
+  }
+
+  addOffer(){
+    this._dialog.open(AddOfferComponent);
   }
 
 }

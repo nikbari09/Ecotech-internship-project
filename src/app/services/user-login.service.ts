@@ -14,11 +14,15 @@ export class UserLoginService {
 
   addUserLogin(email:string,password:string,role:string):Observable<any>{
     const body={email,password,role};
-    return this._http.post('http://localhost:3000/user-login',body);
+    return this._http.post('https://localhost:7122/api/User_Login',body);
   }
 
   getUserLogin():Observable<any>{
-    return this._http.get('http://localhost:3000/user-login');
+    return this._http.get('https://localhost:7122/api/User_Login/getuser_login');
+  }
+
+  updateUserPassword(id:any, data:any):Observable<any>{
+    return this._http.put(`https://localhost:7122/api/User_Login/updateuserLoginpassword/${id}`,data);
   }
 
 }

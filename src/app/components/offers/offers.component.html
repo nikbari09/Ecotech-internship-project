@@ -1,8 +1,8 @@
 <h1 style="font-weight: bold; padding-top: 10px; font-size: 24px; margin-left: 20px;">Cafe Offers: </h1>
 
 <div *ngIf="role === 'admin' else offerElse">
-    <div>
-        <button class="card-button">Add Menu</button>
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <button class="card-button" (click)="addOffer()">Add Offer</button>
     </div>
     <div class="offer-container">
         <!-- Offer 1 -->
@@ -10,7 +10,7 @@
             <!-- <img src="offer1.jpg" alt="Offer 1" class="offer-image"> -->
             <div class="offer-details">
                 <div style="text-align: end;">
-                    <mat-icon style="color: blue;" fontIcon="edit"></mat-icon>&nbsp;
+                    <mat-icon style="color: blue;" (click)="OnEdit(value)" fontIcon="edit"></mat-icon>&nbsp;
                     <mat-icon style="color: red;" (click)="OnDelete(value.id)" fontIcon="delete"></mat-icon>
                 </div>
                 <div class="offer-title">{{value.title}} :</div>

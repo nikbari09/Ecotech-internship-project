@@ -23,10 +23,10 @@
         <mat-icon>account_circle</mat-icon>
     </button>
     <mat-menu #userAccountMenu [overlapTrigger]="false" yPosition="below">
-        <button mat-menu-item routerLink="#">
+        <button mat-menu-item routerLink="/dashboard/profile">
             <mat-icon>person</mat-icon><span>{{firstname | uppercase}}</span>
         </button>
-        <button mat-menu-item routerLink="#">
+        <button mat-menu-item (click)="changepwd()">
             <mat-icon>settings</mat-icon><span>Change Password</span>
         </button>
         <button mat-menu-item routerLink="#">
@@ -42,10 +42,10 @@
         <mat-icon>account_circle</mat-icon>
       </button>
       <mat-menu #userAccountMenu [overlapTrigger]="false" yPosition="below">
-        <button mat-menu-item routerLink="#">
+        <button mat-menu-item routerLink="/dashboard/profile">
             <mat-icon>person</mat-icon><span>{{firstname | uppercase}}</span>
         </button>
-        <button mat-menu-item routerLink="#">
+        <button mat-menu-item (click)="changepwd()">
             <mat-icon>settings</mat-icon><span>Change Password</span>
         </button>
         <button mat-menu-item routerLink="/dashboard/orders">

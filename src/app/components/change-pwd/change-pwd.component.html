@@ -1,1 +1,25 @@
-<p>change-pwd works!</p>
+<div class="box">
+  <div class="change-password-container">
+    <h2>Change Password</h2>
+    <form [formGroup]="changePasswordForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="outline">
+          <mat-label>Current Password</mat-label>
+          <input matInput type="password" formControlName="currentPassword" required/>
+        </mat-form-field>
+        <div class="row">
+          <mat-form-field appearance="outline">
+            <mat-label>New Password</mat-label>
+            <input matInput type="password" formControlName="newPassword" required/>
+            <!-- <mat-hint align="end">{{ changePasswordForm.get('newPassword').errors?.minlength ? 'Minimum 6 characters' : '' }}</mat-hint> -->
+          </mat-form-field>
+      
+          <mat-form-field appearance="outline">
+            <mat-label>Confirm Password</mat-label>
+            <input matInput type="password" formControlName="confirmPassword" required/>
+          </mat-form-field>
+        </div>
+    
+        <button mat-raised-button type="submit" style="background-color: #5C3317; color: white;">Change Password</button>
+      </form>
+</div>
+</div>

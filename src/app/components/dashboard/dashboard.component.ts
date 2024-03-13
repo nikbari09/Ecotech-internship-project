@@ -1,9 +1,11 @@
 import { keyframes } from '@angular/animations';
 import { coerceStringArray } from '@angular/cdk/coercion';
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, ParamMap, Route, Router } from '@angular/router';
 import { UserLoginService } from 'src/app/services/user-login.service';
 import { UsersService } from 'src/app/services/users.service';
+import { ChangePwdComponent } from '../change-pwd/change-pwd.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,7 +16,8 @@ export class DashboardComponent {
   constructor(private _activatedrouter:ActivatedRoute,
     private _userService:UsersService,
     private _userloginService:UserLoginService,
-    private router:Router){}
+    private router:Router,
+    private _dialog:MatDialog){}
   firstname!:string;
   lastname!:string;
   email!:string;
@@ -50,6 +53,10 @@ export class DashboardComponent {
         console.log(err);
       }
     })
+  }
+
+  changepwd(){
+    this._dialog.open(ChangePwdComponent);
   }
 
   onLogout(){

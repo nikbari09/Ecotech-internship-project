@@ -1,0 +1,28 @@
+.profile-container {
+    max-width: 600px;
+    margin: 10px auto;
+  }
+  
+  .user-info {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .edit-info {
+    border: 1px solid #ddd;
+    padding: 10px;
+  }
+  
+  form {
+    display: grid;
+    gap: 10px;
+  }
+  
+  button {
+    background-color: #5C3317;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+  }

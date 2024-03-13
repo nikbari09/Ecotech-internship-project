@@ -15,9 +15,15 @@
       MENU
     </div>
     <hr>
-    <div>
-      <button class="card-button" style="margin-left: 45%;" (click)="addMenu()" *ngIf="role==='admin'">Add Menu</button>
+    <div style="display: flex; justify-content: center; align-items: center;">
+      <button class="card-button" (click)="addMenu()" *ngIf="role==='admin'">Add Menu</button>
     </div>
+    <div style="margin-top: 10px; display: flex; justify-content: center; align-items: center;">
+      <mat-form-field>
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Pizza"  #input>
+      </mat-form-field>
+    </div> 
     <div class="row" style="display: flex; justify-content: center; align-items: center;" *ngIf="role ==='admin' else Else">
         <div style="display: flex; flex-wrap: wrap;">
             <div style="flex: 1;" *ngFor="let items of menu ">

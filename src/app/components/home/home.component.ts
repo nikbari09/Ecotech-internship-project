@@ -38,6 +38,7 @@ export class HomeComponent {
       }
       }
     }
+    
     this._userService.getUser().subscribe({
       next:(res)=>{
         for(let val of res){
@@ -72,7 +73,7 @@ export class HomeComponent {
 
   onEdit(data:any){
     const dialogref=this._dialog.open(AddMenuComponent,{data});
-    console.log(data.id);
+    // console.log(data.id);
     
   }
 
@@ -91,4 +92,9 @@ export class HomeComponent {
     // this.router.navigate(['/add-menu']);
     this._dialog.open(AddMenuComponent);
   }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.menu.filter = filterValue.trim().toLowerCase();
+  } 
 }

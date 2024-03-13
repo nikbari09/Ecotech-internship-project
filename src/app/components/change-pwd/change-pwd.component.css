@@ -1,0 +1,26 @@
+.change-password-container {
+    max-width: 500px;
+    /* max-height: 1000px; */
+    /* margin: 10px auto; */
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    /* border: 1px solid black; */
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+.box{
+  max-width: 500px;
+  max-height: 500px;
+  background-color: #D2B48C;
+}
