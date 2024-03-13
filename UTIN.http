@@ -1,0 +1,6 @@
+@UTIN_HostAddress = http://localhost:5274
+
+GET {{UTIN_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
