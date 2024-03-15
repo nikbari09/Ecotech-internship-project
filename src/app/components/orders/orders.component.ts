@@ -3,6 +3,16 @@ import { OrdersService } from 'src/app/services/orders.service';
 import { TimeService } from 'src/app/services/time.service';
 import { UsersService } from 'src/app/services/users.service';
 
+interface printing{
+  firstname:string;
+  lastname: string;
+  date:any;
+  order_time:any;
+  Item_name:any;
+  count:number;
+  total_cost:number;
+  Address:any[];
+}
 
 @Component({
   selector: 'app-orders',
@@ -17,6 +27,7 @@ export class OrdersComponent {
   email!:any;
   userOrder:any[]=[];
   currentTime:any;
+  printbills:printing[]=[];
 
   constructor(private _ordersService:OrdersService,
     private _usersService:UsersService,
@@ -138,5 +149,33 @@ export class OrdersComponent {
       }
       }
     }, 1 * 60 * 1000);
+  }
+
+  OnCancel(id:any){
+    for(let data of this.orderData)
+    {
+      if(id === data.id)
+      {
+        data.details[0].status='Cancelled';
+        // data.time=this._timeService.getTime();
+        this._ordersService.updateStatus(id,data).subscribe({
+          next:(res)=>{
+            console.log(res);
+            window.location.reload();
+          },
+          error:(err)=>{
+            console.log(err);
+          }
+        })
+      }
+    }
+  }
+
+  print(){
+    const printcontent=document.getElementById('print-content')!.innerHTML;
+    const originalcontent=document.body.innerHTML;
+    document.body.innerHTML=printcontent+'UTIN Solutions '+'Contact: '+'+91 7505008076';
+    window.print();
+    document.body.innerHTML=originalcontent;
   }
 }

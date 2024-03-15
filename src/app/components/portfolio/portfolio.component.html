@@ -1,0 +1,19 @@
+<div style="margin-bottom: 10px;">
+    <div style="font-size: 20px; font-weight: bold; padding-top: 20px; margin-left: 30px;">Cafe Summary:</div>
+    <div style="display: flex; flex-wrap: wrap; padding-top: 10px; padding-bottom: 10px; justify-content: center; align-items: center; gap: 20px;">
+        <div class="card">
+            <b>Total Delivered Orders:</b><b style="font-size: 18px; color:green">{{count}}</b>
+        </div>
+        <div class="card">
+            <b>Total Amount Earn:</b><b style="font-size: 18px; color:green">{{amount | currency:'INR'}}</b>
+        </div>
+        <div class="card">
+            <b>Total Cancel Orders:</b><b style="font-size: 18px; color:red">{{cancel_count}}</b>
+        </div>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center;">
+        <div class="card">
+            <b>Transaction Summary:</b><button  mat-button style=" background-color:#5C3317; color: white; margin-top: 5px;" (click)="showStatement()">Statement</button>
+        </div>
+    </div>
+</div>

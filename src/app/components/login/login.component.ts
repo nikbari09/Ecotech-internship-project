@@ -56,7 +56,7 @@ export class LoginComponent {
         //   }
         // }
         if(userFound.length>0){
-          // console.log(userFound);
+          console.log(userFound);
           // console.log(userFound[0].email);
           
           
@@ -83,11 +83,31 @@ export class LoginComponent {
           // console.log(this._userloginService.email);
           //localStorage.setItem('user',JSON.stringify(userFound));
           if(userFound[0].role === 'user'){
+            this._userloginService.login(userFound[0]).subscribe({
+              next:(res)=>{
+                console.log(res);
+                
+                localStorage.setItem('usertoken',JSON.stringify(res.token));
+              },
+              error:(err)=>{
+                console.log(err);
+                
+              }
+            })
             localStorage.setItem('user',JSON.stringify(userFound));
             this.router.navigate(['/dashboard/home']);
           }
           else if(userFound[0].role === 'admin')
           {
+            this._userloginService.login(userFound[0]).subscribe({
+              next:(res)=>{
+                localStorage.setItem('admintoken',JSON.stringify(res.token));
+              },
+              error:(err)=>{
+                console.log(err);
+                
+              }
+            })
             localStorage.setItem('admin',JSON.stringify(userFound));
             this.router.navigate(['/dashboard/home']);
 

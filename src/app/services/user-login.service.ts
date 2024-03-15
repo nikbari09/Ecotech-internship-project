@@ -25,4 +25,8 @@ export class UserLoginService {
     return this._http.put(`https://localhost:7122/api/User_Login/updateuserLoginpassword/${id}`,data);
   }
 
+  login(data:any):Observable<any>{
+    return this._http.post('https://localhost:7122/api/Auth/login',data);
+  }
+
 }

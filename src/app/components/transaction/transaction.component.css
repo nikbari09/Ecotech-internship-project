@@ -1,0 +1,13 @@
+.scrollbar-auto {
+    scrollbar-width: thin;
+    height: 500px;
+    width: 600px;
+    overflow-y: scroll;
+}
+
+.sticky-header {
+    position: -webkit-sticky; 
+    position: sticky; 
+    top: 0; 
+    z-index: 1;
+  }

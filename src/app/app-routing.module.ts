@@ -12,6 +12,7 @@ import { AddMenuComponent } from './components/add-menu/add-menu.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ChangePwdComponent } from './components/change-pwd/change-pwd.component';
+import { PortfolioComponent } from './components/portfolio/portfolio.component';
 
 const routes: Routes = [
   {path:'login', component:LoginComponent},
@@ -23,7 +24,8 @@ const routes: Routes = [
     {path:'cart',component:CartComponent},
     {path:'orders', component:OrdersComponent},
     {path:'profile', component:ProfileComponent},
-    {path:'change-password', component:ChangePwdComponent}
+    {path:'change-password', component:ChangePwdComponent},
+    {path:'portfolio', component:PortfolioComponent}
     
   ]},
   {path:'add-menu', component:AddMenuComponent}

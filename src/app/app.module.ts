@@ -8,7 +8,7 @@ import { ForgetPwdComponent } from './components/forget-pwd/forget-pwd.component
 import { ChangePwdComponent } from './components/change-pwd/change-pwd.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SignupModule } from './components/signup/signup.module';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { MatIconButton } from '@angular/material/button';
@@ -36,7 +36,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
 import { DeliveryBoyLoaderComponent } from './components/delivery-boy-loader/delivery-boy-loader.component';
-
+import {CloudinaryModule} from '@cloudinary/ng';
+import { TokenInterceptor } from './interceptor/token.interceptor';
+import { PortfolioComponent } from './components/portfolio/portfolio.component';
+import { TransactionComponent } from './components/transaction/transaction.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +57,8 @@ import { DeliveryBoyLoaderComponent } from './components/delivery-boy-loader/del
     AddOfferComponent,
     ProfileComponent,
     DeliveryBoyLoaderComponent,
+    PortfolioComponent,
+    TransactionComponent,
     
   ],
   imports: [
@@ -82,10 +87,10 @@ import { DeliveryBoyLoaderComponent } from './components/delivery-boy-loader/del
     NgxUiLoaderHttpModule.forRoot({
       showForeground:true,
       loaderId: 'deliveryBoyLoader',
-      
-    })
+    }),
+    CloudinaryModule
   ],
-  providers: [],
+  providers: [ { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
