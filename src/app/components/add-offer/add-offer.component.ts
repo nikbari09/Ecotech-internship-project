@@ -28,7 +28,7 @@ export class AddOfferComponent {
   }
 
   addOffer() {
-    if(this.offer)
+    if(this.data)
     {
       this._offerService.updateOffer(this.offer.id,this.offer).subscribe({
         next:(res)=>{
