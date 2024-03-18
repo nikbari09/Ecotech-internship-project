@@ -29,3 +29,19 @@ button{
     background-color: #804A00; /* Add your desired styling for active links */
     color: white;
   }
+
+  /* notification red dot */
+  .red-dot {
+    position: absolute;
+    top: 5px; /* Adjust the top position as needed */
+    right: 5px; /* Adjust the right position as needed */
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+    color: white;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

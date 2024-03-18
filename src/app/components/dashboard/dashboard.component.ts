@@ -1,11 +1,11 @@
 import { keyframes } from '@angular/animations';
 import { coerceStringArray } from '@angular/cdk/coercion';
-import { Component } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, ParamMap, Route, Router } from '@angular/router';
-import { UserLoginService } from 'src/app/services/user-login.service';
 import { UsersService } from 'src/app/services/users.service';
 import { ChangePwdComponent } from '../change-pwd/change-pwd.component';
+import { OrdersService } from 'src/app/services/orders.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,13 +15,16 @@ import { ChangePwdComponent } from '../change-pwd/change-pwd.component';
 export class DashboardComponent {
   constructor(private _activatedrouter:ActivatedRoute,
     private _userService:UsersService,
-    private _userloginService:UserLoginService,
+    private _orderService:OrdersService,
     private router:Router,
     private _dialog:MatDialog){}
   firstname!:string;
   lastname!:string;
   email!:string;
   role!:any;
+  notifycount=0;
+  notification:any[]=[];
+  countOffer!:number;
   
   ngOnInit(){
     // this is for getting role from localstorage.
@@ -46,6 +49,20 @@ export class DashboardComponent {
             this.firstname=val.firstname;
             console.log('name',val.firstname);
             this.lastname=val.lastname;
+          }
+        }
+      },
+      error:(err)=>{
+        console.log(err);
+      }
+    })
+    this._orderService.getOrder().subscribe({
+      next:(res)=>{
+        for(let value of res){
+          if(value.details[0].status==='placed')
+          {
+            this.notifycount++;
+            this.notification.push(value);
           }
         }
       },

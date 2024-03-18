@@ -8,7 +8,7 @@
     </ng-template>
     <button mat-button *ngIf="role === 'admin' else ContactElse" routerLink="portfolio" routerLinkActive="active-link">Portfolio</button>
     <ng-template #ContactElse>
-      <button mat-button routerLink="#" routerLinkActive="active-link">Contact us</button>
+      <button mat-button routerLink="contact-us" routerLinkActive="active-link">Contact us</button>
     </ng-template>
     <button mat-button routerLink="order" *ngIf="role === 'admin' else CartElse" routerLink="/dashboard/orders"routerLinkActive="active-link">Order</button>
     <ng-template #CartElse>
@@ -19,9 +19,16 @@
     <button mat-icon-button matTooltip="Share">
         <mat-icon>share</mat-icon>
     </button>
-    <button mat-icon-button matTooltip="Notifications">
+    <button mat-icon-button matTooltip="Notifications" *ngIf="role === 'admin' else NotifyElse" routerLink="notification">
         <mat-icon>notifications</mat-icon>
+        <div class="red-dot" *ngIf="notifycount>0">{{notifycount}}</div>
     </button>
+    <ng-template #NotifyElse>
+      <button mat-icon-button matTooltip="Notifications" >
+        <mat-icon>notifications</mat-icon>
+        <div class="red-dot" *ngIf="countOffer>0"></div>
+      </button>
+    </ng-template>
     <button mat-icon-button matTooltip="My Account" [matMenuTriggerFor]="userAccountMenu" *ngIf="role === 'admin' else profileElse">
         <mat-icon>account_circle</mat-icon>
     </button>

@@ -1,0 +1,21 @@
+<div *ngIf="role === 'admin'">
+    <div *ngFor="let item of notification" class="card-container" id="print-content" (click)="Onclick()">
+        <mat-card class="horizontal-card">
+          <mat-card-content>
+            <p style="text-align: end;"><b>Date: {{item.date | date}}</b>&nbsp;
+            <b>Order time: {{item.details[0].time}}</b>&nbsp;
+            <b *ngIf="item.details[0].status === 'Delivered'">Delivered time: {{item.time}}</b></p>
+            <p><b>Order by: </b>{{item.details[0].firstname | titlecase}} {{item.details[0].lastname | titlecase}}</p>
+            <p><b>Item Name: </b>{{ item.details[0].item_name | titlecase}} &nbsp;&nbsp;
+            <b>Count: </b>{{ item.details[0].count }}</p>
+            <p><b>Total Cost: </b>{{item.details[0].total_cost | currency:'INR'}}&nbsp;&nbsp;
+            <b>Status: </b>{{ item.details[0].status | titlecase }}</p>
+            <p><b>Address:</b>
+                {{ item.details[0].address[0].street }},
+                {{ item.details[0].address[0].city }},
+                {{ item.details[0].address[0].state }},
+                {{ item.details[0].address[0].pinCode }}.</p>
+          </mat-card-content>
+        </mat-card>
+    </div>
+  </div>

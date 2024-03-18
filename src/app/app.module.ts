@@ -40,6 +40,8 @@ import {CloudinaryModule} from '@cloudinary/ng';
 import { TokenInterceptor } from './interceptor/token.interceptor';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { TransactionComponent } from './components/transaction/transaction.component';
+import { NotificationComponent } from './components/notification/notification.component';
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +61,8 @@ import { TransactionComponent } from './components/transaction/transaction.compo
     DeliveryBoyLoaderComponent,
     PortfolioComponent,
     TransactionComponent,
+    NotificationComponent,
+    ContactUsComponent,
     
   ],
   imports: [

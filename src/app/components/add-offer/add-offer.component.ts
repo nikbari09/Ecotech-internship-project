@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, Output } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { OfferService } from 'src/app/services/offer.service';
 
@@ -9,6 +9,7 @@ import { OfferService } from 'src/app/services/offer.service';
 })
 export class AddOfferComponent {
   offer!:any;
+  countOffer=0;
   constructor(private _dialogRef:MatDialogRef<AddOfferComponent>,@Inject(MAT_DIALOG_DATA) public data:any,
   private _offerService:OfferService){
     this.offer= {
@@ -48,6 +49,7 @@ export class AddOfferComponent {
         next: (res)=>{
           this._dialogRef.close();
           window.location.reload();
+          this.countOffer++;
        },
        error: (err)=>{
           console.log(err);
