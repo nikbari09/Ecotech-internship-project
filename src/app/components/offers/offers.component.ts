@@ -39,7 +39,7 @@ export class OffersComponent {
     this._offerService.getOffer().subscribe({
       next:(res)=>{
         console.log(res);
-        
+        res.reverse();
         this.offers=res;
       },
       error:(err)=>{

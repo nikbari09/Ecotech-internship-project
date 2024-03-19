@@ -19,3 +19,12 @@
         </mat-card>
     </div>
   </div>
+  <div>
+    <div class="card-container" (click)="OnOfferClick()">
+        <mat-card class="horizontal-card" *ngIf="countOffer>0">
+            <mat-card-content>
+                <p>New Offer added. Check the Offer and get benefits...!</p>
+            </mat-card-content>
+        </mat-card>
+    </div>
+  </div>

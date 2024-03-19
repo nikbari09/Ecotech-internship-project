@@ -6,6 +6,7 @@ import { ActivatedRoute, ParamMap, Route, Router } from '@angular/router';
 import { UsersService } from 'src/app/services/users.service';
 import { ChangePwdComponent } from '../change-pwd/change-pwd.component';
 import { OrdersService } from 'src/app/services/orders.service';
+import { NotifyOfferService } from 'src/app/services/notify-offer.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,6 +15,7 @@ import { OrdersService } from 'src/app/services/orders.service';
 })
 export class DashboardComponent {
   constructor(private _activatedrouter:ActivatedRoute,
+    private _notifyOffer:NotifyOfferService,
     private _userService:UsersService,
     private _orderService:OrdersService,
     private router:Router,
@@ -24,7 +26,7 @@ export class DashboardComponent {
   role!:any;
   notifycount=0;
   notification:any[]=[];
-  countOffer!:number;
+  countOffer=0;
   
   ngOnInit(){
     // this is for getting role from localstorage.
@@ -70,6 +72,21 @@ export class DashboardComponent {
         console.log(err);
       }
     })
+    
+    this._notifyOffer.getCount().subscribe({
+      next:(res)=>{
+        for(let val of res)
+        {
+          if(val.count ==1)
+          {
+            this.countOffer++;
+          }
+        }
+      },
+      error:(err)=>{
+        console.log(err);
+      }
+    });
   }
 
   changepwd(){

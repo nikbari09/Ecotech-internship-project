@@ -24,9 +24,9 @@
         <div class="red-dot" *ngIf="notifycount>0">{{notifycount}}</div>
     </button>
     <ng-template #NotifyElse>
-      <button mat-icon-button matTooltip="Notifications" >
+      <button mat-icon-button matTooltip="Notifications" routerLink="notification">
         <mat-icon>notifications</mat-icon>
-        <div class="red-dot" *ngIf="countOffer>0"></div>
+        <div class="red-dot" *ngIf="countOffer>0">{{countOffer}}</div>
       </button>
     </ng-template>
     <button mat-icon-button matTooltip="My Account" [matMenuTriggerFor]="userAccountMenu" *ngIf="role === 'admin' else profileElse">
