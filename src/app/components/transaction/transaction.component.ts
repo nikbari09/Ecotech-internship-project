@@ -25,7 +25,7 @@ export class TransactionComponent {
         {
           if(value.details[0].status === 'Delivered')
           {
-            this.detail.push({date:value.date,time:value.time,transaction_id:'',payment_mode:'',amount:value.details[0].total_cost});
+            this.detail.push({date:value.date,time:value.time,transaction_id:value.details[0].transaction_id,payment_mode:value.details[0].payment_mode,amount:value.details[0].total_cost});
           }
         }
       },

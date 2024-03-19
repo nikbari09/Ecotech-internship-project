@@ -42,6 +42,8 @@ import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { TransactionComponent } from './components/transaction/transaction.component';
 import { NotificationComponent } from './components/notification/notification.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { PaymentComponent } from './components/payment/payment.component';
+import { MatRadioButton, MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -63,6 +65,7 @@ import { ContactUsComponent } from './components/contact-us/contact-us.component
     TransactionComponent,
     NotificationComponent,
     ContactUsComponent,
+    PaymentComponent,
     
   ],
   imports: [
@@ -74,6 +77,7 @@ import { ContactUsComponent } from './components/contact-us/contact-us.component
     FormsModule,
     ReactiveFormsModule,
     MatToolbarModule,
+    MatRadioModule,
     MatButtonModule, 
     MatIconModule,
     MatMenuModule,

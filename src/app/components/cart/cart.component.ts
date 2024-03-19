@@ -7,6 +7,7 @@ import { OrdersService } from 'src/app/services/orders.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { TimeService } from 'src/app/services/time.service';
 import { UsersService } from 'src/app/services/users.service';
+import { PaymentComponent } from '../payment/payment.component';
 
 export interface add {
   street: string;
@@ -14,7 +15,6 @@ export interface add {
   state:string;
   pinCode:string;
 }
-
 export interface isplaceorder{
   address:add[];
   email:any;
@@ -25,6 +25,8 @@ export interface isplaceorder{
   item_name:any;
   status:any;
   time:any;
+  payment_mode:any;
+  transaction_id:any;
 }
 
 @Component({
@@ -56,6 +58,7 @@ export class CartComponent {
   placeorder:isplaceorder[]=[];
   orderForm:FormGroup = new FormGroup({});
   currentTime:any;
+  data:any;
   
   
   ngOnInit(){
@@ -147,24 +150,26 @@ export class CartComponent {
 
   placeOrder(){
     this.currentTime=this._timeService.getTime();
-    this.placeorder=[{address:[{street:this.street,city:this.city,state:this.state,pinCode:this.pin}],email:this.email,total_cost:this.totalcost,count:this.inputnumber,item_name:this.title,status:'placed',time:this.currentTime,firstname:this.firstname,lastname:this.lastname}];
+    this.placeorder=[{address:[{street:this.street,city:this.city,state:this.state,pinCode:this.pin}],email:this.email,total_cost:this.totalcost,count:this.inputnumber,item_name:this.title,status:'placed',time:this.currentTime,firstname:this.firstname,lastname:this.lastname,payment_mode:'',transaction_id:''}];
     // this.placeorder=this.isaddress+this.totalcost;
     this.orderForm.value.details=this.placeorder;
-    console.log(this.placeorder);
+    // console.log(this.placeorder);
     localStorage.setItem('order',JSON.stringify(this.placeorder));
-    this._orderService.addOrder(this.orderForm.value).subscribe({
-      next:(res)=>{
-        console.log(res); 
-        localStorage.removeItem('item');
-        window.location.reload();
-        // console.log(res[0].email);
-        // console.log(res.id);
-      },
-      error:(err)=>{
-        console.log(err);
+    const data=this.orderForm.value
+    const dialogref=this._dialog.open(PaymentComponent,{data});
+    // this._orderService.addOrder(this.orderForm.value).subscribe({
+    //   next:(res)=>{
+    //     console.log(res); 
+    //     localStorage.removeItem('item');
+    //     window.location.reload();
+    //     // console.log(res[0].email);
+    //     // console.log(res.id);
+    //   },
+    //   error:(err)=>{
+    //     console.log(err);
         
-      }
-    })
+    //   }
+    // })
   }
 
   addAddress(){

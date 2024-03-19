@@ -9,7 +9,8 @@
           <p><b>Item Name: </b>{{ item.details[0].item_name | titlecase}} &nbsp;&nbsp;
           <b>Count: </b>{{ item.details[0].count }}</p>
           <p><b>Total Cost: </b>{{item.details[0].total_cost | currency:'INR'}}&nbsp;&nbsp;
-          <b>Status: </b>{{ item.details[0].status | titlecase }}</p>
+          <b>Status: </b>{{ item.details[0].status | titlecase }}&nbsp;&nbsp;
+          <b>Payment Mode: </b>{{ item.details[0].payment_mode | titlecase}}</p>
           <p><b>Address:</b>
               {{ item.details[0].address[0].street }},
               {{ item.details[0].address[0].city }},

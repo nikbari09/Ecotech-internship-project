@@ -4,7 +4,7 @@
         <div *ngFor="let data of detail" style="line-height: 0.5;">
           <p style="text-align: end;"><b>Date:</b> {{data.date}} &nbsp; <b>Time: </b>{{data.time}}</p>
           <p style="color:green;"><b style="color:black;">Amount: </b>{{data.amount | currency:'INR'}}</p>
-          <p><b>Transaction Id: </b>{{data.transaction_id}}</p>
+          <p *ngIf="data.payment_mode != 'Cash on Delivery'"><b>Transaction Id: </b>{{data.transaction_id}}</p>
           <p><b>Payment Mode: </b>{{data.payment_mode}}</p>
           <hr>
         </div>

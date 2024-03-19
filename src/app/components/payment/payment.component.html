@@ -1,0 +1,39 @@
+<div class="payment-container">
+    <div class="payment-header">Choose Payment Method</div>
+    
+    <div class="payment-methods">
+        <mat-radio-group [(ngModel)]="selectedPaymentMethod">
+          <div>
+            <mat-radio-button value="Credit Card">Credit Card</mat-radio-button>
+          </div>
+          <div>
+            <mat-radio-button value="Debit Card">Debit Card</mat-radio-button>
+          </div>
+          <div>
+              <mat-radio-button value="Google Pay">Google Pay</mat-radio-button>
+            </div>
+            <div>
+                <mat-radio-button value="PhonePe">Phone Pay</mat-radio-button>
+            </div>
+            <div>
+              <mat-radio-button value="Cash on Delivery">Cash on Delivery</mat-radio-button>
+            </div>
+        </mat-radio-group>
+      </div>
+    
+    <div class="payment-details" *ngIf="selectedPaymentMethod == 'Credit Card' || selectedPaymentMethod =='Debit Card'">
+      <form class="payment-form">
+        <label for="card-number">Card Number</label>
+        <input type="text" id="card-number" name="card-number" required>
+        
+        <label for="expiry-date">Expiry Date</label>
+        <input type="text" id="expiry-date" name="expiry-date" required>
+        
+        <label for="cvv">CVV</label>
+        <input type="text" id="cvv" name="cvv" required>
+      </form>
+    </div>
+    
+    <button class="pay-button" (click)="processPayment()">Place Order</button>
+  </div>
+  

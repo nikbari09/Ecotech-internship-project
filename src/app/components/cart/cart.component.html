@@ -31,7 +31,7 @@
 
 <div class="place-order-container" *ngIf="items else placeElse">
     <b>Total Price: {{totalcost | currency:'INR'}}</b>&nbsp;
-    <button class="place-order-button" (click)="placeOrder()">Place Order</button>
+    <button class="place-order-button" (click)="placeOrder()">Proceed to Pay</button>
 </div>
 <ng-template #placeElse>
     <div style="text-align: center;">
