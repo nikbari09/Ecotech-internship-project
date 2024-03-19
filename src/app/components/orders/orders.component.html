@@ -44,7 +44,8 @@
       <mat-card-content>
         <p><b>Item Name: </b>{{ item.details[0].item_name | titlecase}}&nbsp;
         <b>Count: </b>{{ item.details[0].count }}</p>
-        <p><b>Total Cost: </b>{{item.details[0].total_cost |currency:'INR'}}</p>
+        <p><b>Total Cost: </b>{{item.details[0].total_cost |currency:'INR'}}&nbsp;&nbsp;
+          <b>Payment Mode: </b>{{item.details[0].payment_mode | titlecase}}</p>
         <p><b>Date: {{item.date | date}}</b>&nbsp;
         <b>Order time:  {{item.details[0].time}}</b> &nbsp;
         <b *ngIf="item.details[0].status === 'Delivered'">Delivered time:  {{item.time}}</b></p>
