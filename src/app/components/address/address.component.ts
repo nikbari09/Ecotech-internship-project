@@ -35,8 +35,8 @@ export class AddressComponent {
   }
 
   submitForm(): void {
-    console.log(this.id);
-    console.log(this.address);
+    // console.log(this.id);
+    // console.log(this.address);
     localStorage.setItem('address',JSON.stringify(this.address));
     this._dialogRef.close();
     window.location.reload();

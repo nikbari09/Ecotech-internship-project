@@ -38,7 +38,7 @@ export class OffersComponent {
 
     this._offerService.getOffer().subscribe({
       next:(res)=>{
-        console.log(res);
+        // console.log(res);
         res.reverse();
         this.offers=res;
       },
@@ -54,7 +54,7 @@ export class OffersComponent {
     // localStorage.setItem('item',JSON.stringify(items)as any);
     // this._router.navigate(['/dashboard/cart']);
     this.data=[{title:(items.item1+" + "+items.item2),price:items.discounted_price}];
-    console.log(this.data);
+    // console.log(this.data);
     localStorage.setItem('item',JSON.stringify(this.data[0]));
     this._router.navigate(['/dashboard/cart']);  
   }

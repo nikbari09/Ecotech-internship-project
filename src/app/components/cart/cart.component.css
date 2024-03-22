@@ -108,3 +108,8 @@ img{
     font-size: 16px;
     padding-top:10px;
 }
+/* Snack bar color */
+.red-snack-bar {
+    background-color: red;
+    color: white;
+  }

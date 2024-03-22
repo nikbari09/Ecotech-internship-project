@@ -8,6 +8,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { TimeService } from 'src/app/services/time.service';
 import { UsersService } from 'src/app/services/users.service';
 import { PaymentComponent } from '../payment/payment.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 declare var Razorpay:any;
 export interface add {
@@ -40,7 +41,8 @@ export class CartComponent {
   private _dialog:MatDialog,
   private _orderService:OrdersService,
   private _timeService:TimeService,
-  private _userService:UsersService){}
+  private _userService:UsersService,
+  private snackBar: MatSnackBar){}
   
   inputnumber = 1;
   firstname!:any;
@@ -84,7 +86,7 @@ export class CartComponent {
         const value=JSON.parse(storedrole) ;
         // console.log(value);
         this.items=value;
-        console.log(this.items);
+        // console.log(this.items);
         
         this.title=value.title;
         this.price=<number>value.price;
@@ -98,7 +100,7 @@ export class CartComponent {
         if(storedaddress){
           const add=JSON.parse(storedaddress);
           this.isaddress=storedaddress;
-          console.log(this.isaddress);
+          // console.log(this.isaddress);
           
           this.street=add.street;
           this.city=add.city;
@@ -158,7 +160,7 @@ export class CartComponent {
       name:'UTIN',
       key:'rzp_test_1w6VzlVepugGZD',
       handler: (response: any) => {
-        console.log('Payment successful. Payment ID:', response.razorpay_payment_id);
+        // console.log('Payment successful. Payment ID:', response.razorpay_payment_id);
         // Handle payment success
         this.currentTime=this._timeService.getTime();
         this.placeorder=[{address:[{street:this.street,city:this.city,state:this.state,pinCode:this.pin}],email:this.email,total_cost:this.totalcost,count:this.inputnumber,item_name:this.title,status:'placed',time:this.currentTime,firstname:this.firstname,lastname:this.lastname,payment_mode:'Online',transaction_id:response.razorpay_payment_id}];
@@ -170,11 +172,15 @@ export class CartComponent {
         // const dialogref=this._dialog.open(PaymentComponent,{data});
         this._orderService.addOrder(this.orderForm.value).subscribe({
           next:(res)=>{
-            console.log(res); 
+            // console.log(res); 
             localStorage.removeItem('item');
             window.location.reload();
             // console.log(res[0].email);
             // console.log(res.id);
+            this.snackBar.open('Order Placed...!', 'Close', {
+              duration: 3000,
+              verticalPosition: 'top',
+            });
           },
           error:(err)=>{
             console.log(err);
@@ -191,23 +197,33 @@ export class CartComponent {
       },
       modal:{
         ondismiss:()=>{
-          console.log('Payment Cancelled.')
+          this.snackBar.open('Payment Cancelled...', 'Close', {
+            duration: 3000,
+            panelClass: ['red-snack-bar'],
+            verticalPosition: 'top',
+          });
+          console.log('Payment Cancelled.');
         },
       }
     }
     const rzp = new Razorpay(razorpayOptions);
     rzp.on('payment.failed',(response:any)=>{
        console.error('Payment failed:', response.error.code, response.error.description);
+       this.snackBar.open('Payment Failed.', 'Close', {
+        duration: 3000,
+        panelClass: ['red-snack-bar'],
+        verticalPosition: 'top',
+      });
     });
     rzp.open();
 
   
     const successCallback=(Payment_id:any)=>{
-      console.log(Payment_id);
+      // console.log(Payment_id);
       
     }
     const failureCallback=(e:any)=>{
-      console.log(e);
+      // console.log(e);
     }
     // Razorpay.open(razorpayOptions,successCallback,failureCallback);
   }

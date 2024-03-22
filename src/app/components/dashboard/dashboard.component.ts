@@ -49,7 +49,7 @@ export class DashboardComponent {
           // console.log(val);
           if(this.email === val.email){
             this.firstname=val.firstname;
-            console.log('name',val.firstname);
+            // console.log('name',val.firstname);
             this.lastname=val.lastname;
           }
         }

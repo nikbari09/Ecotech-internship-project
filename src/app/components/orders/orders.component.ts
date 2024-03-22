@@ -77,7 +77,7 @@ export class OrdersComponent {
         // data.time=this._timeService.getTime();
         this._ordersService.updateStatus(id,data).subscribe({
           next:(res)=>{
-            console.log(res);
+            // console.log(res);
             window.location.reload();
           },
           error:(err)=>{
@@ -97,7 +97,7 @@ export class OrdersComponent {
         // data.time=this._timeService.getTime();
         this._ordersService.updateStatus(id,data).subscribe({
           next:(res)=>{
-            console.log(res);
+            // console.log(res);
             window.location.reload();
           },
           error:(err)=>{
@@ -118,7 +118,7 @@ export class OrdersComponent {
         // data.time=this._timeService.getTime();
         this._ordersService.updateStatus(id,data).subscribe({
           next:(res)=>{
-            console.log(res);
+            // console.log(res);
             // window.location.reload();
           },
           error:(err)=>{
@@ -139,7 +139,7 @@ export class OrdersComponent {
         
         this._ordersService.updateStatus(id,data).subscribe({
           next:(res)=>{
-            console.log(res);
+            // console.log(res);
             window.location.reload();
           },
           error:(err)=>{
@@ -160,7 +160,7 @@ export class OrdersComponent {
         // data.time=this._timeService.getTime();
         this._ordersService.updateStatus(id,data).subscribe({
           next:(res)=>{
-            console.log(res);
+            // console.log(res);
             window.location.reload();
           },
           error:(err)=>{

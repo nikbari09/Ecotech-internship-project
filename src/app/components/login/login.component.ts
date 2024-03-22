@@ -56,7 +56,7 @@ export class LoginComponent {
         //   }
         // }
         if(userFound.length>0){
-          console.log(userFound);
+          // console.log(userFound);
           // console.log(userFound[0].email);
           
           
@@ -85,7 +85,7 @@ export class LoginComponent {
           if(userFound[0].role === 'user'){
             this._userloginService.login(userFound[0]).subscribe({
               next:(res)=>{
-                console.log(res);
+                // console.log(res);
                 
                 localStorage.setItem('usertoken',JSON.stringify(res.token));
               },

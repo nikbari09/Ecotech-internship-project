@@ -30,7 +30,7 @@ export class AddOfferComponent {
     if(this.data!=null){
       this.offer=this.data;
     }
-    console.log(this.data)
+    // console.log(this.data)
   }
 
   addOffer() {
@@ -66,7 +66,7 @@ export class AddOfferComponent {
     this.count=this.value;
     this._notifyOffer.setCount(this.count).subscribe({
       next:(res)=>{
-        console.log(res);
+        // console.log(res);
       },
       error:(err)=>{
         console.log(err);

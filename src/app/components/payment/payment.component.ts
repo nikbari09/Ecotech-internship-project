@@ -25,7 +25,7 @@ export class PaymentComponent {
     this.data.details[0].payment_mode=this.selectedPaymentMethod;
     this._orderService.addOrder(this.data).subscribe({
         next:(res)=>{
-          console.log(res); 
+          // console.log(res); 
           localStorage.removeItem('item');
           window.location.reload();
           // console.log(res[0].email);

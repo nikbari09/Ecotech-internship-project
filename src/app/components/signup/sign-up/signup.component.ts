@@ -37,12 +37,12 @@ export class SignupComponent {
     
     this._userService.addUser(this.registerForm.value).subscribe({
       next:(res)=>{
-        console.log(res);
+        // console.log(res);
         // console.log(res.email);
         
         this._userloginService.addUserLogin(res.email,res.password,res.role).subscribe({
           next:(res1)=>{
-            console.log(res1);
+            // console.log(res1);
             
           },
           error:(err1)=>{

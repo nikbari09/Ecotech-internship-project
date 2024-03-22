@@ -89,7 +89,7 @@ export class ChangePwdComponent {
         this.userLoginData.password=newPassword;
         this._userLoginService.updateUserPassword(this.userLoginData.id,this.userLoginData).subscribe({
           next:(res)=>{
-            console.log(res);
+            // console.log(res);
           },
           error:(err)=>{
             console.log(err); 

@@ -56,7 +56,7 @@ export class HomeComponent {
 
     this._menuService.getMenu().subscribe({
       next:(res)=>{
-        console.log(res);
+        // console.log(res);
         this.menu=res;
       },
       error:(err)=>{
