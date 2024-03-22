@@ -47,6 +47,10 @@ export class AddOfferComponent {
           
         }
       })
+      this.snackBar.open('Offer edited successfully.', 'Close', {
+        duration: 3000,
+        verticalPosition: 'top',
+      });
     }
     else
     {

@@ -1,5 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Cloudinary, CloudinaryImage } from '@cloudinary/url-gen';
 import { quality, format } from '@cloudinary/url-gen/actions/delivery';
 import { fill, auto } from '@cloudinary/url-gen/actions/resize';
@@ -18,7 +19,8 @@ import { MenuService } from 'src/app/services/menu.service';
 export class AddMenuComponent {
   productData!:any;
   constructor(private _menuService:MenuService,
-    private _dialogref:MatDialogRef<AddMenuComponent>,@Inject(MAT_DIALOG_DATA) public data:any
+    private _dialogref:MatDialogRef<AddMenuComponent>,@Inject(MAT_DIALOG_DATA) public data:any,
+    private snackBar:MatSnackBar
     ){
       this.productData = {
         title: '',
@@ -60,6 +62,10 @@ export class AddMenuComponent {
           console.log(err);
         }
       })
+      this.snackBar.open('Menu Edited.', 'Close', {
+        duration: 3000,
+        verticalPosition: 'top',
+      });
     }
     else{
       // console.log('Form submitted:', this.productData);
@@ -98,6 +104,10 @@ export class AddMenuComponent {
 
       }
     })
+    this.snackBar.open('New menu added.', 'Close', {
+      duration: 3000,
+      verticalPosition: 'top',
+    });
     }
 }
 }
