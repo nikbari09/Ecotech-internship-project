@@ -153,7 +153,7 @@ export class CartComponent {
 
   placeOrder(){
     const razorpayOptions={
-      description:'sample razorpay demo',
+      description:'Payment from '+this.firstname+' '+this.lastname,
       mode:'Cash On Delivery',
       currency:'INR',
       "amount": this.totalcost*100,
@@ -193,9 +193,11 @@ export class CartComponent {
         phone:'',
       },
       theme:{
-        color:'#f37254'
+        color:'#5C3317'
       },
       modal:{
+        width:'400px',
+        height:'300px',
         ondismiss:()=>{
           this.snackBar.open('Payment Cancelled...', 'Close', {
             duration: 3000,
