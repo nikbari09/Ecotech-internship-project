@@ -1,5 +1,6 @@
 import { Component, Inject, Output } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { NotifyOfferService } from 'src/app/services/notify-offer.service';
 import { OfferService } from 'src/app/services/offer.service';
 
@@ -16,7 +17,7 @@ export class AddOfferComponent {
   count !:number;
   value=0;
   constructor(private _dialogRef:MatDialogRef<AddOfferComponent>,@Inject(MAT_DIALOG_DATA) public data:any,
-  private _offerService:OfferService, private _notifyOffer:NotifyOfferService){
+  private _offerService:OfferService, private _notifyOffer:NotifyOfferService,private snackBar:MatSnackBar){
     this.offer= {
       title: '',
       item1: '',
@@ -60,6 +61,10 @@ export class AddOfferComponent {
           console.log(err);
         }
       })
+      this.snackBar.open('Offer added successfully.', 'Close', {
+        duration: 3000,
+        verticalPosition: 'top',
+      });
     }
     this.value=this.value+1;
     // console.log("add",this.count);
