@@ -1,10 +1,11 @@
 .login-container {
     max-width: 400px;
     margin: auto;
+    /* padding-top: 20px; */
     padding: 20px;
     border: 1px solid #5C3317;
     border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     background-color: #D2B48C;
   }
   
@@ -44,9 +45,10 @@
     color: blue;
   }
   .box{
-    max-width: 500px;
-    max-height: 500px;
+    width: 500px;
+    height: 325px;
     background-color: #D2B48C;
+    padding-top: 30px;
   }
 
   

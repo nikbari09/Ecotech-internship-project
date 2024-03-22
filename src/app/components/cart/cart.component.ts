@@ -9,6 +9,7 @@ import { TimeService } from 'src/app/services/time.service';
 import { UsersService } from 'src/app/services/users.service';
 import { PaymentComponent } from '../payment/payment.component';
 
+declare var Razorpay:any;
 export interface add {
   street: string;
   city:string;
@@ -149,27 +150,66 @@ export class CartComponent {
   }
 
   placeOrder(){
-    this.currentTime=this._timeService.getTime();
-    this.placeorder=[{address:[{street:this.street,city:this.city,state:this.state,pinCode:this.pin}],email:this.email,total_cost:this.totalcost,count:this.inputnumber,item_name:this.title,status:'placed',time:this.currentTime,firstname:this.firstname,lastname:this.lastname,payment_mode:'',transaction_id:''}];
-    // this.placeorder=this.isaddress+this.totalcost;
-    this.orderForm.value.details=this.placeorder;
-    // console.log(this.placeorder);
-    localStorage.setItem('order',JSON.stringify(this.placeorder));
-    const data=this.orderForm.value
-    const dialogref=this._dialog.open(PaymentComponent,{data});
-    // this._orderService.addOrder(this.orderForm.value).subscribe({
-    //   next:(res)=>{
-    //     console.log(res); 
-    //     localStorage.removeItem('item');
-    //     window.location.reload();
-    //     // console.log(res[0].email);
-    //     // console.log(res.id);
-    //   },
-    //   error:(err)=>{
-    //     console.log(err);
-        
-    //   }
-    // })
+    const razorpayOptions={
+      description:'sample razorpay demo',
+      mode:'Cash On Delivery',
+      currency:'INR',
+      "amount": this.totalcost*100,
+      name:'UTIN',
+      key:'rzp_test_1w6VzlVepugGZD',
+      handler: (response: any) => {
+        console.log('Payment successful. Payment ID:', response.razorpay_payment_id);
+        // Handle payment success
+        this.currentTime=this._timeService.getTime();
+        this.placeorder=[{address:[{street:this.street,city:this.city,state:this.state,pinCode:this.pin}],email:this.email,total_cost:this.totalcost,count:this.inputnumber,item_name:this.title,status:'placed',time:this.currentTime,firstname:this.firstname,lastname:this.lastname,payment_mode:'Online',transaction_id:response.razorpay_payment_id}];
+        // this.placeorder=this.isaddress+this.totalcost;
+        this.orderForm.value.details=this.placeorder;
+        // console.log(this.placeorder);
+        localStorage.setItem('order',JSON.stringify(this.placeorder));
+        // const data=this.orderForm.value
+        // const dialogref=this._dialog.open(PaymentComponent,{data});
+        this._orderService.addOrder(this.orderForm.value).subscribe({
+          next:(res)=>{
+            console.log(res); 
+            localStorage.removeItem('item');
+            window.location.reload();
+            // console.log(res[0].email);
+            // console.log(res.id);
+          },
+          error:(err)=>{
+            console.log(err);
+          }
+        })
+      },
+      prefill:{
+        "name": this.firstname+' '+this.lastname,
+        email:this.email,
+        phone:'',
+      },
+      theme:{
+        color:'#f37254'
+      },
+      modal:{
+        ondismiss:()=>{
+          console.log('Payment Cancelled.')
+        },
+      }
+    }
+    const rzp = new Razorpay(razorpayOptions);
+    rzp.on('payment.failed',(response:any)=>{
+       console.error('Payment failed:', response.error.code, response.error.description);
+    });
+    rzp.open();
+
+  
+    const successCallback=(Payment_id:any)=>{
+      console.log(Payment_id);
+      
+    }
+    const failureCallback=(e:any)=>{
+      console.log(e);
+    }
+    // Razorpay.open(razorpayOptions,successCallback,failureCallback);
   }
 
   addAddress(){

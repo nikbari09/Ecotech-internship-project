@@ -7,10 +7,11 @@
           <b *ngIf="item.details[0].status === 'Delivered'">Delivered time: {{item.time}}</b></p>
           <p><b>Order by: </b>{{item.details[0].firstname | titlecase}} {{item.details[0].lastname | titlecase}}</p>
           <p><b>Item Name: </b>{{ item.details[0].item_name | titlecase}} &nbsp;&nbsp;
-          <b>Count: </b>{{ item.details[0].count }}</p>
+          <b>Count: </b>{{ item.details[0].count }}&nbsp;&nbsp;
+          <b>Status: </b>{{ item.details[0].status | titlecase }}</p>
           <p><b>Total Cost: </b>{{item.details[0].total_cost | currency:'INR'}}&nbsp;&nbsp;
-          <b>Status: </b>{{ item.details[0].status | titlecase }}&nbsp;&nbsp;
-          <b>Payment Mode: </b>{{ item.details[0].payment_mode | titlecase}}</p>
+          <b>Payment Mode: </b>{{ item.details[0].payment_mode | titlecase}}&nbsp;&nbsp;
+          <b *ngIf="item.details[0].payment_mode == 'Online'">Transaction id: </b>{{item.details[0].transaction_id}}</p>
           <p><b>Address:</b>
               {{ item.details[0].address[0].street }},
               {{ item.details[0].address[0].city }},
@@ -45,7 +46,8 @@
         <p><b>Item Name: </b>{{ item.details[0].item_name | titlecase}}&nbsp;
         <b>Count: </b>{{ item.details[0].count }}</p>
         <p><b>Total Cost: </b>{{item.details[0].total_cost |currency:'INR'}}&nbsp;&nbsp;
-          <b>Payment Mode: </b>{{item.details[0].payment_mode | titlecase}}</p>
+          <b>Payment Mode: </b>{{item.details[0].payment_mode | titlecase}}&nbsp;&nbsp;
+          <b *ngIf="item.details[0].payment_mode == 'Online'">Transaction id: </b>{{item.details[0].transaction_id}}</p>
         <p><b>Date: {{item.date | date}}</b>&nbsp;
         <b>Order time:  {{item.details[0].time}}</b> &nbsp;
         <b *ngIf="item.details[0].status === 'Delivered'">Delivered time:  {{item.time}}</b></p>

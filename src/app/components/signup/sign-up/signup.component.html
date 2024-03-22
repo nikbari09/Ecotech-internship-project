@@ -41,18 +41,18 @@
             <div class="row">
                 <mat-form-field appearance="outline">
                     <mat-label>Password</mat-label>
-                    <input matInput type="password" placeholder="Enter your email" formControlName="password" required>
+                    <input matInput type="password" placeholder="Enter your email" formControlName="password" maxlength="8" required>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                     <mat-label>Re-Password</mat-label>
-                    <input matInput type="password" placeholder="Enter your email" formControlName="re_password" required>
+                    <input matInput type="password" placeholder="Enter your email" formControlName="re_password" maxlength="8" required>
                 </mat-form-field>
             </div>
             
         </div>
         <div class="actions">
-            <button mat-raised-button type="button" >Cancel</button> &nbsp;
-            <button mat-raised-button style="background-color:#5C3317; color: white;"  type="submit">Submit</button>
+            <button mat-raised-button type="button" (click)="registerForm.reset()">Clear</button> &nbsp;
+            <button mat-raised-button style="background-color:#5C3317; color: white;"  type="submit" [disabled]="registerForm.invalid">Submit</button>
         </div>
         
     </form>
