@@ -1,6 +1,6 @@
 <h1 style="font-weight: bold; padding-top: 10px; font-size: 24px; margin-left: 20px;">Cafe Offers: </h1>
 
-<div *ngIf="role === 'admin' else offerElse">
+<div *ngIf="role === 'admin' else offerElse" >
     <div style="display: flex; justify-content: center; align-items: center;">
         <button class="card-button" (click)="addOffer()">Add Offer</button>
     </div>
