@@ -16,6 +16,8 @@
 
 .card-title {
     margin-bottom: 0;
+    font-size: 22px;
+    font-weight: bold;
 }
 
 .card-subtitle {
@@ -113,3 +115,4 @@ img{
     background-color: red;
     color: white;
   }
+  

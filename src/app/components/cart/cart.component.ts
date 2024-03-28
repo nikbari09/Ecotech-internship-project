@@ -193,11 +193,9 @@ export class CartComponent {
         phone:'',
       },
       theme:{
-        color:'#5C3317'
+        color:'#5C3317',
       },
       modal:{
-        width:'400px',
-        height:'300px',
         ondismiss:()=>{
           this.snackBar.open('Payment Cancelled...', 'Close', {
             duration: 3000,
